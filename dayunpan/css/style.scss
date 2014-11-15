@@ -61,6 +61,7 @@ button{
 .top-bar{
     padding: 10px 0;
     border: 1px solid #e5e5e5;
+    min-width: 1200px;
     a{
         color: #656565;
         &:hover{
@@ -107,6 +108,8 @@ button{
     background: #2a2a2a;
     height: 44px;
     line-height: 44px;
+    width: 100%;
+    min-width: 1200px;
     .menu{
         li{
             float: left;
@@ -189,6 +192,7 @@ button{
             background: #ffb400;
             font-size: 14px;
             padding: 0 15px;
+            margin-right: 0px;
             a{
                 color: #2a2a2a;
                 
@@ -203,6 +207,9 @@ button{
 }
 .banner{
     margin-bottom: 26px;
+    width: 100%;
+    min-width: 1200px;
+    _width: expression(((document.compatMode && document.compatMode=='CSS1Compat')? document.documentElement.clientWidth : document.body.clientWidth) < 1200? '1200px' : 'auto'); 
     img{
         vertical-align: top;
         width: 100%;
@@ -347,6 +354,8 @@ button{
     font-size: 14px;
     color: #fff;
     text-align: center;
+    width:100%;
+    min-width: 1200px;
     a{
         color: #fff;
         &:hover{
@@ -369,6 +378,7 @@ button{
         line-height: 1.8;
         font-size: 12px;
         color: #777777;
+        _width: 1200px;
     }
 }
 
@@ -729,6 +739,8 @@ button{
 .list-banner-bxSlider{
     position: relative;
     width: 100%;
+    min-width: 1200px;
+    _width: expression(((document.compatMode && document.compatMode=='CSS1Compat')? document.documentElement.clientWidth : document.body.clientWidth) < 1200? '1200px' : 'auto');
 }
 .list-banner-bxSlider .bx-pager{
     position: absolute;

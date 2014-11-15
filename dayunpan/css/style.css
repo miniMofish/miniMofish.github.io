@@ -72,7 +72,8 @@ button {
 /*头部*/
 .top-bar {
   padding: 10px 0;
-  border: 1px solid #e5e5e5; }
+  border: 1px solid #e5e5e5;
+  min-width: 1200px; }
   .top-bar a {
     color: #656565; }
     .top-bar a:hover {
@@ -110,7 +111,9 @@ button {
 .main-nav {
   background: #2a2a2a;
   height: 44px;
-  line-height: 44px; }
+  line-height: 44px;
+  width: 100%;
+  min-width: 1200px; }
   .main-nav .menu li {
     float: left; }
   .main-nav .menu .current a, .main-nav .menu .current a:hover {
@@ -167,7 +170,8 @@ button {
   .main-nav .user-assi .mini-cart {
     background: #ffb400;
     font-size: 14px;
-    padding: 0 15px; }
+    padding: 0 15px;
+    margin-right: 0px; }
     .main-nav .user-assi .mini-cart a {
       color: #2a2a2a; }
     .main-nav .user-assi .mini-cart .icon {
@@ -176,7 +180,10 @@ button {
       background-position: -80px top; }
 
 .banner {
-  margin-bottom: 26px; }
+  margin-bottom: 26px;
+  width: 100%;
+  min-width: 1200px;
+  _width: expression(((document.compatMode && document.compatMode=='CSS1Compat')? document.documentElement.clientWidth : document.body.clientWidth) < 1200? '1200px' : 'auto'); }
   .banner img {
     vertical-align: top;
     width: 100%; }
@@ -287,7 +294,9 @@ button {
   background: #222222;
   font-size: 14px;
   color: #fff;
-  text-align: center; }
+  text-align: center;
+  width: 100%;
+  min-width: 1200px; }
   .footer a {
     color: #fff; }
     .footer a:hover {
@@ -306,7 +315,8 @@ button {
     padding: 30px 0 40px;
     line-height: 1.8;
     font-size: 12px;
-    color: #777777; }
+    color: #777777;
+    _width: 1200px; }
 
 /*产品页面*/
 .crumbs {
@@ -611,7 +621,9 @@ button {
 
 .list-banner-bxSlider {
   position: relative;
-  width: 100%; }
+  width: 100%;
+  min-width: 1200px;
+  _width: expression(((document.compatMode && document.compatMode=='CSS1Compat')? document.documentElement.clientWidth : document.body.clientWidth) < 1200? '1200px' : 'auto'); }
 
 .list-banner-bxSlider .bx-pager {
   position: absolute;
