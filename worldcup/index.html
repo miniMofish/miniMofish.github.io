@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>世界杯活动专题页面</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="top-shadow">
+        <ul id="topShadow" class="scene">
+            <li class="layer" data-depth="0.3"><img src="img/top-shadow.png" alt=""></li>
+        </ul>
+    </div>
+    <div class="bottom-shadow">
+        <ul id="btmShadow" class="scene">
+            <li class="layer" data-depth="0.3"><img src="img/bottom-shadow.png" alt=""></li>
+        </ul>
+    </div>
+    <div class="wrap">
+        <div class="container"> 
+            <ul id="scene" class="scene world-cup">
+                <li class="layer" data-depth="0.2">
+                    <i id="star-five" class="star"></i>
+                    <img src="img/world-cup.png" alt="">
+                </li>
+            </ul>
+        </div>
+        <div class="menu">
+            <div class="simple">
+                <a href="#">
+                    <sup>+</sup>
+                    <img src="img/qd.png" alt="">
+                    <span>签到有礼</span>
+                    <p>一加手机&emsp;看球神器<br>限量勋章&emsp;狂送32天</p>
+                </a>
+            </div>
+            <div class="simple">
+                <a href="#">
+                    <sup>+</sup>
+                    <img src="img/yazhu.png" alt="">
+                    <span>猜球押注</span>
+                    <p>一加手机&emsp;疯狂猜球<br>加油压注&emsp;你行你上</p>
+                </a>
+            </div>
+            <div class="simple">
+                <a href="#">
+                    <sup>+</sup>
+                    <img src="img/tv.png" alt="">
+                    <span>一起看球</span>
+                    <p>一加手机&emsp;你我同行<br>一起看球&emsp;燃烧激情</p>
+                </a>
+            </div>
+            <div class="simple">
+                <a href="#">
+                    <sup>+</sup>
+                    <img src="img/tls.png" alt="">
+                    <span>赢特斯拉</span>
+                    <p>一加手机&emsp;疯狂抽奖<br>好礼相送&emsp;赢特斯拉</p>
+                </a>
+            </div>
+        </div>
+    </div>
+    <script src="../lib/jquery-1.9.1.js"></script>
+    <script src="js/jquery-parallax.js"></script>
+    <script>
+    $(function () {
+        $('#scene').parallax();
+        $('#topShadow').parallax({scalarY:false});
+        $('#btmShadow').parallax({scalarY:false});
+        
+        $(window).on('load resize',function(){
+            $('body').css({
+                width: $(window).width(),
+                height: $(window).height()
+            })
+        })
+    })
+    </script>
+</body>
+</html>
