@@ -1,0 +1,181 @@
+@charset "UTF-8";
+/*css reset*/
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, form, legend, input, button, textarea, p, th, td, fieldset, section, article, aside, label, select, button, a, span, i {
+  margin: 0;
+  padding: 0; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+ol, ul, li {
+  list-style: none; }
+
+address, caption, em, i, strong, th {
+  font-weight: normal;
+  font-style: normal; }
+
+fieldset, img {
+  border: 0; }
+
+:focus {
+  outline: none; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  font-size: 100%; }
+
+a {
+  text-decoration: none; }
+
+/*css reset end*/
+body, html {
+  font-size: 14px; }
+
+/*重置某些样式suffering*/
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+  padding-right: 5px;
+  padding-left: 5px; }
+
+/*css3属性兼容*/
+.container {
+  font-size: 1rem; }
+
+.fl {
+  float: left; }
+
+.fr {
+  float: right; }
+
+.search-room {
+  padding: 30px 20px; }
+  .search-room select {
+    width: 100%;
+    padding: 5px 0;
+    border-radius: 5px; }
+  .search-room .btn-row {
+    text-align: center;
+    padding: 15px 0 0; }
+
+.room-list {
+  padding: 0 5px; }
+  .room-list .room-item {
+    margin-bottom: 5px; }
+    .room-list .room-item .room-state {
+      text-align: right; }
+      .room-list .room-item .room-state .icon {
+        margin-left: 5px;
+        color: #205081;
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        -ms-transition: all 0.3s;
+        -o-transition: all 0.3s;
+        transition: all 0.3s; }
+    .room-list .room-item .panel-body {
+      padding: 0;
+      height: 0;
+      overflow: hidden;
+      -webkit-transition: all 0.3s ease-in-out;
+      -moz-transition: all 0.3s ease-in-out;
+      -ms-transition: all 0.3s ease-in-out;
+      -o-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out; }
+    .room-list .room-item .room-feature {
+      list-style: none;
+      line-height: 2;
+      padding: 15px; }
+      .room-list .room-item .room-feature label {
+        font-weight: normal; }
+      .room-list .room-item .room-feature .icon {
+        color: #5cb85c;
+        margin-right: 5px; }
+      .room-list .room-item .room-feature span {
+        color: #d9534f; }
+    .room-list .room-item .book-btn {
+      text-align: right;
+      padding: 15px;
+      padding-top: 40px; }
+  .room-list .show-info .panel-body {
+    height: 114px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out; }
+  .room-list .show-info .room-state .trans-icon {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s; }
+
+.book-room {
+  margin: 15px 0; }
+  .book-room label {
+    font-size: 1.2rem; }
+
+.form-group .meeting-time select {
+  width: 50%;
+  float: left; }
+
+.form-group.book-btn {
+  text-align: center; }
+
+.booked-list {
+  margin: 15px 0; }
+  .booked-list .book-info li {
+    line-height: 2;
+    font-size: 1rem; }
+    .booked-list .book-info li i {
+      margin-right: 5px; }
+    .booked-list .book-info li label {
+      color: #333333; }
+
+.alert {
+  text-align: center; }
+
+.book-detail {
+  margin-bottom: 30px; }
+  .book-detail li {
+    line-height: 2; }
+  .book-detail label {
+    display: inline-block;
+    width: 20%;
+    text-align: right;
+    margin-right: 10px; }
+
+.cancel-btn {
+  text-align: center; }
+
+.book-detail-wrap {
+  margin: 15px 0; }
+
+.alert-default {
+  color: #333;
+  background-color: #f5f5f5;
+  border-color: #ddd; }
+
+.choose-time {
+  margin: 15px 0; }
+  .choose-time .nav-tabs {
+    text-align: center; }
+    .choose-time .nav-tabs li {
+      display: inline-block;
+      float: none; }
+
+.time-list {
+  margin: 15px 0; }
+  .time-list li {
+    width: 32%;
+    text-align: center;
+    margin: 10px 0; }

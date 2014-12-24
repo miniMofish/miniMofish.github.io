@@ -1,0 +1,206 @@
+@charset "UTF-8";
+/*css reset*/
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,form,legend,input,button,textarea,p,th,td,fieldset,section,article,aside,label,select,button,a,span,i{margin: 0;padding: 0;}
+table{border-collapse: collapse;border-spacing: 0}
+ol,ul,li{list-style: none}
+address, caption, em, i, strong, th{font-weight:normal;font-style:normal;}
+fieldset,img{border: 0;}
+:focus{outline: none}
+h1, h2, h3, h4, h5, h6{font-weight:normal;font-size:100%;}
+a{text-decoration: none;}
+/*css reset end*/    
+body,html{
+    font-size: 14px;
+}
+/*重置某些样式suffering*/
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12{
+    padding-right: 5px;
+    padding-left: 5px;
+}
+/*css3属性兼容*/
+@mixin radius($radiusVal:5px){  //圆角
+    -webkit-border-radius: $radiusVal;
+       -moz-border-radius: $radiusVal;
+        -ms-border-radius: $radiusVal;
+         -o-border-radius: $radiusVal;
+            border-radius: $radiusVal;
+}
+@mixin transition($transition){
+    -webkit-transition: $transition;
+       -moz-transition: $transition;
+        -ms-transition: $transition;
+         -o-transition: $transition;
+            transition: $transition;
+}
+@mixin transform($transform){
+    -webkit-transform: $transform;
+       -moz-transform: $transform;
+        -ms-transform: $transform;
+         -o-transform: $transform;
+            transform: $transform;
+}
+@mixin animation($animation){
+    -webkit-animation: $animation;
+       -moz-animation: $animation;
+        -ms-animation: $animation;
+         -o-animation: $animation;
+            animation: $animation;
+}
+@mixin scale($scale: 1.2){
+    -webkit-transform: scale($scale);
+       -moz-transform: scale($scale);
+        -ms-transform: scale($scale);
+         -o-transform: scale($scale);
+            transform: scale($scale);
+}
+.container{
+    font-size: 1rem;
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+.search-room{
+    padding: 30px 20px;
+    select{
+        width: 100%;
+        padding: 5px 0;
+        border-radius: 5px
+    }
+    input{
+
+    }
+    .btn-row{
+        text-align: center;
+        padding: 15px 0 0
+    }
+}
+.room-list{
+    padding: 0 5px;
+    .room-item{
+        margin-bottom: 5px;
+        .room-state{
+            text-align: right;
+            .icon{
+                margin-left: 5px;
+                color: #205081;
+                @include transform(rotate(0deg));
+                @include transition(all .3s)
+            }
+        }
+        .panel-body{
+            padding: 0;
+            height: 0;
+            overflow: hidden;
+            @include transition(all .3s ease-in-out)
+        }
+        .room-feature{
+            list-style: none;
+            line-height: 2;
+            padding: 15px;
+            label{
+                font-weight: normal;
+            }
+            .icon{
+                color: #5cb85c;
+                margin-right: 5px;
+            }
+            span{
+                color: #d9534f;
+            }
+        }
+        .book-btn{
+            text-align: right;
+            padding: 15px;
+            padding-top: 40px;
+        }
+    }
+    .show-info{
+       .panel-body{
+            height: 114px;
+            @include transition(all .3s ease-in-out)
+        }
+        .room-state{
+            .trans-icon{
+                @include transform(rotate(90deg));
+                @include transition(all .3s)
+            }
+        }
+    }
+}
+.book-room{
+    margin: 15px 0;
+    label{
+        font-size: 1.2rem;
+    }
+}
+.form-group .meeting-time{
+    select{
+        width: 50%;
+        float: left;
+    }
+}
+.form-group.book-btn{
+    text-align: center;
+}
+.booked-list{
+    margin: 15px 0;
+    .book-info{
+        li{
+            line-height: 2;
+            font-size: 1rem;
+            i{
+                margin-right: 5px;
+            }
+            label{
+                color: #333
+            }
+        }
+    }
+}
+.alert{
+    text-align: center;
+}
+.book-detail{
+    margin-bottom: 30px;
+    li{
+        line-height: 2;
+    }
+    label{
+        display: inline-block;
+        width: 20%;
+        text-align: right;
+        margin-right: 10px;
+    }
+}
+.cancel-btn{
+    text-align: center;
+}
+.book-detail-wrap{
+    margin: 15px 0
+}
+.alert-default{
+    color: #333;
+    background-color: #f5f5f5;
+    border-color: #ddd;
+}
+.choose-time{
+    margin: 15px 0;
+    .nav-tabs{
+        text-align: center;
+        li{
+            display: inline-block;
+            float: none;
+        }
+    }
+}
+.time-list{
+    margin: 15px 0;
+    li{
+        width: 32%;
+        text-align: center;
+        margin: 10px 0
+    }
+}

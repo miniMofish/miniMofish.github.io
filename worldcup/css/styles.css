@@ -49,10 +49,10 @@ body {
   -o-animation:flyline 1.5s ease .5s 1;
   -moz-animation:flyline 1.5s ease .5s 1;
 }
-.world-cup .star {
+.world-cup ` {
   position:absolute;
-  left:256px;
-  top:59px;
+  left: 212px;
+  top: 49px;
   border-radius:50%;
   display:inline-block;
   background:#ffb400;

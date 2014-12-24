@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>预订会议室</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- book-meeting-room css -->
+    <link rel="stylesheet" href="css/book.css">
+
+
+</head>
+<body>
+    <div class="container">
+        <!-- 预订会议室 -->
+        <form role="form" action="my-meetint-room.html" class="book-room">
+            <div class="form-group">
+                <label>会议室</label>
+                <input class="form-control" type="text" value="会议室1" disabled>
+            </div>
+            <div class="form-group">
+                <label>会议主题</label>
+                <input type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>参会人数</label>
+                <input type="text" class="form-control">
+            </div> 
+            <div class="form-group">
+                <label>会议时间</label>
+                <div class="meeting-time clearfix">
+                    <select name="" id="" class="form-control">
+                        <option value="20141219">今天</option>
+                        <option value="20141219">2014-12-19</option>
+                        <option value="20141219">2014-12-19</option>
+                    </select>
+
+                    <select name="" id="" class="form-control">
+                        <option value="1230">12:30</option>
+                        <option value="1300">13:00</option>
+                        <option value="1330">13:30</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>预订人</label>
+                <input type="text" class="form-control">
+            </div> 
+            <div class="form-group">
+                <label>附加需求</label>
+                <textarea rows="3" class="form-control"></textarea>
+            </div> 
+            <div class="form-group clearfix">
+                <div class="col-xs-6">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox">
+                            视频会议设备
+                        </label>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox">
+                            电话会议设备
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group book-btn">
+                <button type="submit" class="btn btn-primary btn-lg">提交预订</button>
+            </div>
+        </form>
+    </div>
+
+    <script type="text/javascript" src="http://statics.oneplus.cn/js/lib/jquery-1.9.1.js"></script>
+     <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="js/plugins/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/sb-admin-2.js"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>我预订的会议室</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- book-meeting-room css -->
+    <link rel="stylesheet" href="css/book.css">
+
+
+</head>
+<body>
+    <div class="container">
+        <!-- 我预订的会议室 -->
+        <div class="row booked-list">
+            <div class="panel panel-info" data-url="book-detail.html">
+                <div class="panel-heading clearfix">
+                    <div class="col-xs-8">会议室1</div>
+                    <div class="col-xs-4 room-state"><i class="fa fa-spinner"></i> 审核中</div> 
+                </div>
+                <div class="panel-body">
+                    <ul class="book-info">
+                        <li>
+                            <i class="fa fa-clock-o"></i>
+                            <label>会议时间：</label>
+                            <span>12月13日 周六 15:00</span>
+                        </li>
+                        <li>
+                            <i class="fa fa-user"></i>
+                            <label>参会人数：</label>
+                            <span>10人</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="panel panel-success" data-url="book-detail.html">
+                <div class="panel-heading clearfix">
+                    <div class="col-xs-8">会议室1</div>
+                    <div class="col-xs-4 room-state"><i class="fa fa-check"></i> 预订成功</div> 
+                </div>
+                <div class="panel-body">
+                    <ul class="book-info">
+                        <li>
+                            <i class="fa fa-clock-o"></i>
+                            <label>会议时间：</label>
+                            <span>12月13日 周六 15:00</span>
+                        </li>
+                        <li>
+                            <i class="fa fa-user"></i>
+                            <label>参会人数：</label>
+                            <span>10人</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="panel panel-default" data-url="book-detail.html">
+                <div class="panel-heading clearfix">
+                    <div class="col-xs-8">会议室1</div>
+                    <div class="col-xs-4 room-state"><i class="fa fa-times"></i> 已取消</div> 
+                </div>
+                <div class="panel-body">
+                    <ul class="book-info">
+                        <li>
+                            <i class="fa fa-clock-o"></i>
+                            <label>会议时间：</label>
+                            <span>12月13日 周六 15:00</span>
+                        </li>
+                        <li>
+                            <i class="fa fa-user"></i>
+                            <label>参会人数：</label>
+                            <span>10人</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="http://statics.oneplus.cn/js/lib/jquery-1.9.1.js"></script>
+     <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="js/plugins/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/sb-admin-2.js"></script>
+    <script>
+        $(function() {
+            $('.booked-list .panel').click(function(){
+                window.location.href=$(this).attr('data-url')
+            })
+        })
+    </script>
+</body>
+</html>
