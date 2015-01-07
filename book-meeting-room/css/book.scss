@@ -94,7 +94,12 @@ body,html{
             padding: 0;
             height: 0;
             overflow: hidden;
-            @include transition(all .3s ease-in-out)
+            @include transition(all .3s ease-in-out);
+            .alert{
+                margin-bottom: 0;
+                line-height: 1.8;
+                padding: 10px 20px
+            }
         }
         .room-feature{
             list-style: none;
@@ -107,19 +112,23 @@ body,html{
                 color: #5cb85c;
                 margin-right: 5px;
             }
-            span{
+            span,p{
                 color: #d9534f;
+            }
+            p{
+                clear: left;
+                padding-left: 16px;
             }
         }
         .book-btn{
             text-align: right;
             padding: 15px;
-            padding-top: 40px;
+            padding-top: 20px;
         }
     }
     .show-info{
        .panel-body{
-            height: 114px;
+            height: auto;
             @include transition(all .3s ease-in-out)
         }
         .room-state{
@@ -167,12 +176,18 @@ body,html{
     margin-bottom: 30px;
     li{
         line-height: 2;
+        overflow: hidden;
     }
     label{
         display: inline-block;
-        width: 20%;
+        width: 60px;
         text-align: right;
         margin-right: 10px;
+        float: left;
+    }
+    span{
+        display: block;
+        overflow: hidden;
     }
 }
 .cancel-btn{
