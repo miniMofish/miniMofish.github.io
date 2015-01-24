@@ -64,11 +64,11 @@
                 <label>附加需求</label>
                 <textarea rows="3" class="form-control"></textarea>
             </div> 
-            <div class="form-group clearfix">
+            <div class="form-group clearfix" id="meetingDevice">
                 <div class="col-xs-6">
                     <div class="checkbox">
                         <label>
-                            <input type="radio">
+                            <input type="checkbox">
                             视频会议设备
                         </label>
                     </div>
@@ -76,7 +76,7 @@
                 <div class="col-xs-6">
                     <div class="checkbox">
                         <label>
-                            <input type="radio">
+                            <input type="checkbox">
                             电话会议设备
                         </label>
                     </div>
@@ -97,5 +97,12 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="js/sb-admin-2.js"></script>
+    <script>
+        $(function(){
+            $('#meetingDevice input').click(function () {
+                $('#meetingDevice input').not($(this)).prop('checked',false)
+            })
+        })
+    </script>
 </body>
 </html>
