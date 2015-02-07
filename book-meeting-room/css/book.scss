@@ -206,12 +206,31 @@ body,html{
 }
 .choose-time{
     margin: 15px 0;
+    position: relative;
     .nav-tabs{
         text-align: center;
+        white-space: nowrap;
+        overflow-x: scroll;
+        overflow-y: hidden;
         li{
             display: inline-block;
             float: none;
+            a{
+                margin: 0;
+                padding: 10px 5px;
+            }
         }
+    }
+    .b-arrow{
+        position: absolute;
+        top: 15px;
+        z-index: 3
+    }
+    .fa-caret-left{
+        left: -8px;
+    }
+    .fa-caret-right{
+        right: -8px
     }
 }
 .time-list{
@@ -221,4 +240,8 @@ body,html{
         text-align: center;
         margin: 10px 0
     }
+}
+.language{
+    text-align: right;
+    padding: 15px 0;
 }

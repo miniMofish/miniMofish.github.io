@@ -148,7 +148,7 @@ body, html {
     .booked-list .book-info li i {
       margin-right: 5px; }
     .booked-list .book-info li label {
-      color: #333333; }
+      color: #333; }
 
 .alert {
   text-align: center; }
@@ -180,12 +180,27 @@ body, html {
   border-color: #ddd; }
 
 .choose-time {
-  margin: 15px 0; }
+  margin: 15px 0;
+  position: relative; }
   .choose-time .nav-tabs {
-    text-align: center; }
+    text-align: center;
+    white-space: nowrap;
+    overflow-x: scroll;
+    overflow-y: hidden; }
     .choose-time .nav-tabs li {
       display: inline-block;
       float: none; }
+      .choose-time .nav-tabs li a {
+        margin: 0;
+        padding: 10px 5px; }
+  .choose-time .b-arrow {
+    position: absolute;
+    top: 15px;
+    z-index: 3; }
+  .choose-time .fa-caret-left {
+    left: -8px; }
+  .choose-time .fa-caret-right {
+    right: -8px; }
 
 .time-list {
   margin: 15px 0; }
@@ -193,3 +208,9 @@ body, html {
     width: 32%;
     text-align: center;
     margin: 10px 0; }
+
+.language {
+  text-align: right;
+  padding: 15px 0; }
+
+/*# sourceMappingURL=book.css.map */
