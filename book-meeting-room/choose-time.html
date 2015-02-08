@@ -47,7 +47,7 @@
             </ul>
 
             <div class="tab-content">
-                <div class="tab-pane fade active in" id="tab_1">
+                <div class="tab-pane fade active in" id="tab_con">
                     <ul class="list-inline time-list">
                         <li><a href="#" class="btn btn-info">09:30</a></li>
                         <li><span class="btn btn-default disabled">10:00</span></li>
@@ -64,72 +64,6 @@
                        <li><a href="#" class="btn btn-info">17:30</a></li>
                         <li><span class="btn btn-default disabled">10:00</span></li>
                        <li><a href="#" class="btn btn-info">18:30</a></li>
-                    </ul>
-                </div>
-                <div class="tab-pane fade" id="tab_2">
-                    <ul class="list-inline time-list">
-                       <li><a href="#" class="btn btn-info">09:30</a></li>
-                       <li><a href="#" class="btn btn-info">10:00</a></li>
-                        <li><a href="#" class="btn btn-info">09:30</a></li>
-                        <li><a href="#" class="btn btn-info">11:00</a></li>
-                        <li><a href="#" class="btn btn-info">11:30</a></li>
-                       <li><a href="#" class="btn btn-info">12:00</a></li>
-                       <li><a href="#" class="btn btn-info">14:00</a></li>
-                       <li><a href="#" class="btn btn-info">14:30</a></li>
-                       <li><a href="#" class="btn btn-info">15:00</a></li>
-                       <li><a href="#" class="btn btn-info">16:00</a></li>
-                       <li><a href="#" class="btn btn-info">16:30</a></li>
-                       <li><a href="#" class="btn btn-info">17:00</a></li>
-                       <li><a href="#" class="btn btn-info">17:30</a></li>
-                       <li><a href="#" class="btn btn-info">18:00</a></li>
-                       <li><a href="#" class="btn btn-info">18:30</a></li>
-                    </ul>
-                </div>
-                <div class="tab-pane fade" id="tab_3">
-                    <ul class="list-inline time-list">
-                       <li><a href="#" class="btn btn-info">09:30</a></li>
-                       <li><a href="#" class="btn btn-info">10:00</a></li>
-                        <li><a href="#" class="btn btn-info">09:30</a></li>
-                        <li><a href="#" class="btn btn-info">11:00</a></li>
-                        <li><a href="#" class="btn btn-info">11:30</a></li>
-                       <li><a href="#" class="btn btn-info">12:00</a></li>
-                       <li><a href="#" class="btn btn-info">14:00</a></li>
-                       <li><a href="#" class="btn btn-info">14:30</a></li>
-                       <li><a href="#" class="btn btn-info">15:00</a></li>
-                       <li><a href="#" class="btn btn-info">16:00</a></li>
-                       <li><a href="#" class="btn btn-info">16:30</a></li>
-                       <li><a href="#" class="btn btn-info">17:00</a></li>
-                       <li><a href="#" class="btn btn-info">17:30</a></li>
-                       <li><a href="#" class="btn btn-info">18:00</a></li>
-                       <li><a href="#" class="btn btn-info">18:30</a></li>
-                    </ul>
-                </div>
-                <div class="tab-pane fade" id="tab_4">
-                    <ul class="list-inline time-list">
-                       <li><a href="#" class="btn btn-info">09:30</a></li>
-                       <li><a href="#" class="btn btn-info">10:00</a></li>
-                        <li><a href="#" class="btn btn-info">09:30</a></li>
-                    </ul>
-                </div>
-                <div class="tab-pane fade" id="tab_5">
-                    <ul class="list-inline time-list">
-                       <li><a href="#" class="btn btn-info">09:30</a></li>
-                       <li><a href="#" class="btn btn-info">10:00</a></li>
-                        <li><a href="#" class="btn btn-info">09:30</a></li>
-                    </ul>
-                </div>
-                <div class="tab-pane fade" id="tab_6">
-                    <ul class="list-inline time-list">
-                       <li><a href="#" class="btn btn-info">09:30</a></li>
-                       <li><a href="#" class="btn btn-info">10:00</a></li>
-                        <li><a href="#" class="btn btn-info">09:30</a></li>
-                    </ul>
-                </div>
-                <div class="tab-pane fade" id="tab_7">
-                    <ul class="list-inline time-list">
-                       <li><a href="#" class="btn btn-info">09:30</a></li>
-                       <li><a href="#" class="btn btn-info">10:00</a></li>
-                        <li><a href="#" class="btn btn-info">09:30</a></li>
                     </ul>
                 </div>
             </div>
@@ -146,40 +80,42 @@
     <!-- Custom Theme JavaScript -->
     <script src="js/sb-admin-2.js"></script>
     <script>
-        $(function () {
+         $(function () {
             $('#navTab li a').on('click',function () {
-                var conId = $(this).attr('href');
+                var conId = $('#tab_con');
                 var date = $(this).html();
-
-                changeTime(conId,date);
+                var reserveDate = date.replace(/^\s*/g,"");
+                changeTime(conId,reserveDate.replace(/\s*$/g,""));
             });
             function changeTime(conId,reserveDate){
-                var reserveDate = null;
-                var html = '';
-                reserveDate = $("#emeetDate").val();
-                var mroomId = $("#roomId").val();
+                var html = '<ul class="list-inline time-list">';
+                var mroomId = '${roomId}';
                 var url="/meeting/reserveTime";
                 if(reserveDate!=null){
                    $.ajax({
                      type: "POST",
-                     url: url,
-                     data:{reserveDate:reserveDate,roomId:mroomId},
+                     url: 'http://www.json-generator.com/api/json/get/cuKPOTrSSq?indent=2', //url
+                     data:{reserveDate:reserveDate,roomId:mroomId,timeType:1},
                      error: function(msg){ //失败 
                       alert("获取时间失败");
                      },
                      dataType: 'json',
                      success: function(msg){ //成功 
-                       var reserveTime = msg.info;
-                       $.each(reserveTime, function(i,val){
-                           html += '<option value="'+ val +'">'+ val +'</option>';
-                       });
+                       var reserveTime = msg;
+                       for(var i = 0;i<reserveTime.length;i++){
+                            if(reserveTime[i].status == 0){
+                                html += '<li><span class="btn btn-default disabled">'+reserveTime[i].time+'</span></li>'
+                            }else{
+                                html += '<li><a href="/meeting/goReserveMeetRoom?mroomId='+ mroomId + '&meetDate=' + reserveDate + '&meetTime=' + reserveTime[i].time +'" class="btn btn-info">'+reserveTime[i].time+'</a></li>'
+                            }
+                       }
+                        html += '</ul>'
                        $(conId).empty(); 
                        $(conId).html(html); 
                      }
                    });
                 }
             }
-
         })
     </script>
 </body>
