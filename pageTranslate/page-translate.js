@@ -1,6 +1,7 @@
 //页面简单转场效果
 $(function () {
-    $('.m-page').pageTranslate({
+    $('#transPage').pageTranslate({
+        page: '.m-page',
         callback: function (index) {
             console.log(index);
         }
@@ -12,19 +13,19 @@ $(function () {
 (function(){
     $.fn.pageTranslate = function (options) {
         var defaults = {
-            looping: true,
+            looping: true,  //是否可以循环切换
             callback: function (index) {}
         }
         var opts = $.extend(defaults, options);
         var startY, endY, translateY, scaleV = 1, _page, _index;
         var translateH = $(window).height();
-        var page = $(this);
+        var page = $(opts.page);
 
         $(page).on('touchstart',function (e) {
             startY = e.touches[0].clientY;
         });
 
-        $(page).on('touchmove',function (e) {
+        page.on('touchmove',function (e) {
             e.preventDefault();
             endY = e.touches[0].clientY;
             translateY = (startY - endY);
@@ -33,12 +34,12 @@ $(function () {
             _index = _page.index();
 
             //如果是第一个场景禁止向下转场
-            if(_index == 0 && translateY < 0) return false;
+            if(_index == 0 && translateY < 0 ) return false; //_index获取有时候会跳脱,...
 
             _page.css({
-                '-webkit-transform': 'scale(' + scaleV + ') translate3d(0px,'+ -translateY + 'px' +',0px)',
+                '-webkit-transform': 'scale(' + scaleV + ') translate3d(0px,'+ -(translateY/2) + 'px' +',0px)',
                 '-webkit-transition': 'all 0s ease-in-out'
-            });
+            }).removeClass('active');
 
             if(translateY > 0){
                 //向上
@@ -63,12 +64,11 @@ $(function () {
             }
         });
 
-        $(page).on('touchend',function (e) {
+        page.on('touchend',function (e) {
             _page = $(this);
 
             //如果是第一个场景禁止向下转场
             if(_index == 0 && translateY < 0) {
-                page.removeAttr('style');
                 _page.next().removeClass('active')
                 return false;
             }
@@ -103,7 +103,6 @@ $(function () {
             }
             setTimeout(function () {
                 _page.removeClass('active').removeAttr('style');
-                page.removeAttr('style');
                 opts.callback(_index);
             },300);
         });  
