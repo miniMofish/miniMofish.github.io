@@ -1,0 +1,111 @@
+@charset "UTF-8";
+
+/*css reset*/
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,form,legend,input,button,textarea,p,th,td,fieldset,section,article,aside,label,select,button,a,span,i{margin: 0;padding: 0;}
+table{border-collapse: collapse;border-spacing: 0}
+ol,ul,li{list-style: none}
+address, caption, em, i, strong, th{font-weight:normal;font-style:normal;}
+fieldset,img{border: 0;}
+:focus{outline: none}
+h1, h2, h3, h4, h5, h6{font-weight:normal;font-size:100%;}
+a{text-decoration: none;}
+/*css reset end*/    
+
+/*css3属性兼容*/
+@mixin radius($radiusVal:5px){  //圆角
+    -webkit-border-radius: $radiusVal;
+       -moz-border-radius: $radiusVal;
+        -ms-border-radius: $radiusVal;
+         -o-border-radius: $radiusVal;
+            border-radius: $radiusVal;
+}
+@mixin transition($transition){
+    -webkit-transition: $transition;
+       -moz-transition: $transition;
+        -ms-transition: $transition;
+         -o-transition: $transition;
+            transition: $transition;
+}
+@mixin transform($transform){
+    -webkit-transform: $transform;
+       -moz-transform: $transform;
+        -ms-transform: $transform;
+         -o-transform: $transform;
+            transform: $transform;
+}
+@mixin animation($animation){
+    -webkit-animation: $animation;
+       -moz-animation: $animation;
+        -ms-animation: $animation;
+         -o-animation: $animation;
+            animation: $animation;
+}
+@mixin scale($scale: 1.2){
+    -webkit-transform: scale($scale);
+       -moz-transform: scale($scale);
+        -ms-transform: scale($scale);
+         -o-transform: scale($scale);
+            transform: scale($scale);
+}
+@font-face {
+    /* font-properties */
+    font-family: number;
+    src:url('img/DINAlternateBold.ttf');
+}
+
+/*整站格调*/
+html,body{
+    font-family: Helvetica;
+    @include transform(translate3d(0,0,0));
+}
+.clearfix:after{
+    content: '\200B';
+    display: block;
+    clear: both;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+}
+@mixin absolute($left,$top){
+    position: absolute;
+    left: 50%;
+    margin-left: $left;
+    top: 50%;
+    margin-top: $top;
+}
+/*load*/
+.loading{
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    position: relative;
+    z-index: 12;
+    img{
+        @include absolute(-26px,-26px);
+    }
+}
+/*屏幕提示*/
+.screen-tip{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left:0;
+    text-align: center;
+    background: #db152d;
+    color: #fff;
+    font: .875rem Helvetica,STHeiti STXihei, Microsoft JhengHei, Microsoft YaHei, Arial;
+    font-size: .8rem;
+    z-index: 1988;
+    display: none;
+    div{
+        position: absolute;
+        top: 50%;
+        margin-top: -70px;
+        left: 50%;
+        margin-left: -102px;
+    }
+    p{
+        padding-top: 5px
+    }
+}

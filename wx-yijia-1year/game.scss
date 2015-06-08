@@ -1,0 +1,680 @@
+@charset "UTF-8";
+@import "_init.scss";
+$bg-path: 'img/game/'!default;  
+
+html,body{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    background: url(#{$bg-path}game-bg.png);
+    background-size: contain;
+}
+@function toPer($a,$b){
+    @return percentage($a / $b);
+}
+@function widthToPer($width){
+    @return percentage($width / 640);
+}
+@function heightToPer($height){
+    @return percentage($height / 1008);
+}
+img{
+    vertical-align: top;
+}
+
+.theme-scene{
+    width: widthToPer(560);
+    position: absolute;
+    left: widthToPer(44);
+    top: heightToPer(230);
+    img{
+        width: 100%;
+    }
+    .game-title{
+        width: 100%;
+        background: url(#{$bg-path}big-title-bg.png) no-repeat;
+        background-size: contain;
+        position: relative;
+        z-index: 1;
+        opacity: 0;
+        img{
+            opacity: 0;
+        }
+    }
+    .red-hat{
+        width: widthToPer(96);
+        position: absolute;
+        right: 15.1%;
+        top: -7%;
+        z-index: 2;
+        @include transform(translate3d(0,-1000%,0));
+        .hat{
+            position: relative;
+            z-index: 1
+        }
+        .hat-shadow{
+            width: 60.4%;
+            position: absolute;
+            left: 14%;
+            bottom: 0;
+            z-index: 3
+        }
+    }
+    .sub-title{
+        width: toPer(254,560);
+        background: url(#{$bg-path}sub-title-bg.png) no-repeat;
+        background-size: contain;
+        position: absolute;
+        left: 0;
+        top: -22%;
+        @include transform(translate3d(-1000%,0,0));
+        .fire{
+            width: toPer(24,254);
+            position: absolute;
+            top: -10%;
+            left: 48%;
+            @include transform(scale(0));
+        }
+    }
+    .logo{
+        position: absolute;
+        left: toPer(160,382);
+        bottom: -10px;
+        width: toPer(50,382);
+        z-index: 3;
+        opacity: 0;
+        @include transform(translate3d(0,10%,0));
+    }
+}
+.show-theme-scene{
+    .game-title{
+        @include animation(game-title .4s ease-in-out forwards); 
+        img{
+            @include animation(game-title .4s .2s ease-in-out forwards); 
+        }
+    }
+    .red-hat{
+        @include transform(translate3d(0,0,0));
+        @include transition(all .2s .4s);
+        @include animation(red-hat .8s .6s forwards);
+    }
+    .logo{
+        opacity: 1;
+        @include transform(translate3d(0,0%,0));
+        @include transition(all .4s .6s);
+    }
+    .sub-title{
+        @include animation(sub-title .4s .6s forwards);
+        .fire{
+            @include transform(scale(1));
+            @include transition(all .2s 1.1s);
+            @include animation(fire 2.4s 1.3s infinite);
+        }
+    }
+}
+.onehundred{
+     div{
+        position: absolute;
+        z-index: 2;
+        img{
+            width: 100%;
+            -webkit-transform-origin: 50% -100%;
+            transform-origin: 50% -100%;
+        }
+    }
+    .onehundred-1{
+        width: widthToPer(84);
+        left: 15%;
+        top: 28%;
+        @include transform(translate3d(-250%,-500%,0))
+    }
+    .onehundred-2{
+        width: widthToPer(141);
+        right: 6%;
+        bottom: 26%;
+        @include transform(translate3d(200%,-500%,0))
+    }
+    .onehundred-3{
+        width: widthToPer(292);
+        right: -7%;
+        bottom: 4%;
+        @include transform(translate3d(150%,-300%,0))
+    }
+}
+.show-onehundred{
+    .onehundred-1{
+        @include transform(translate3d(0,0,0));
+        @include transition(all 2s 1s ease-in-out);
+        img{
+            @include animation(clockwiseSpin 2s 1s ease-in-out forwards);
+        }
+    }
+    .onehundred-2{
+        @include transform(translate3d(0,0,0));
+        @include transition(all 2s 1s ease-in-out);
+        img{
+            @include animation(clockwiseSpin 2s 1s ease-in-out forwards);
+        }
+    }
+    .onehundred-3{
+        @include transform(translate3d(0,0,0));
+        @include transition(all 2s 1.5s ease-in-out);
+        img{
+            @include animation(clockwiseSpin 2s 1.5s ease-in-out forwards);
+        }
+    }
+}
+.stage-scene{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: url(#{$bg-path}bg-2.png);
+    background-size: contain;
+    z-index: 3;
+    opacity: 0;
+    img{
+        width: 100%;
+    }
+    .man{
+        width: widthToPer(252);
+        position: absolute;
+        left: widthToPer(233);
+        top: 40%;
+        z-index: 2;
+        @include transform(translate3d(-200%,0,0));
+        .arm{
+            width: toPer(115,252);
+            position: absolute;
+            right: 1px;
+            top: toPer(170,452);
+        }
+    }
+    .cheat-sentence{
+        width: widthToPer(565);
+        position: absolute;
+        left: widthToPer(35);
+        top: 5%;
+        z-index: 1;
+        img{
+            opacity: 0        
+        }
+    }
+}
+.show-stage-scene{
+    opacity: 1;
+    .man{
+        @include transform(translate3d(0,0,0));
+        @include transition(all .3s);
+        .arm{
+            -webkit-transform-origin: 0 50%;
+            @include animation(arm .3s .8s infinite);
+        }
+    }
+    .cheat-sentence{
+        img{
+            @include animation(game-title .3s .3s ease-in-out forwards);
+        }
+    }
+}
+.play-scene{
+    background: url(#{$bg-path}play-bg.png);
+    background-size: contain;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    //opacity: 0;
+    z-index: 4;
+    @include transform(translate3d(1000%,0,0));
+    img{
+        width: 100%;
+    }
+    .sentence{
+        width: widthToPer(552);
+        position: absolute;
+        left: widthToPer((640-552)/2);
+        top: 1%;
+        img{
+            opacity: 0;
+        }
+        //@include transform(scale(0));
+        //@include transition(all .3s);
+    }
+    .face{
+        width: widthToPer(375);      
+        position: absolute;
+        left: widthToPer((640-375)/2);
+        top: 33%;
+        z-index: 10;
+        
+        @include transition(all .3s);
+        .hand-left{
+            position: absolute;
+            width: toPer(231,552);
+            left: 0;
+            top: 50%;
+            opacity: 0;
+        }
+    }
+    .blood{
+        width: widthToPer(565);
+        position: absolute;
+        left: widthToPer((640-555)/2);
+        bottom: 1%;
+        z-index: 11;
+        @include transform(translate3d(-1000%,0,0));
+        @include transition(all .3s);
+        .blood-value{
+            font-size: .65rem;
+            position: absolute;
+            right: toPer(14,555);
+            top: toPer(33,72);
+            font-style: italic;
+            color: #fff;
+            .change{
+                font-size: .875rem;
+                color: #d0333d
+            }
+        }
+        .blood-red{
+            width:0;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            overflow: hidden;
+            @include transition(all .5s);
+        }
+    }
+}
+.play-scene.tap{
+    background: url(#{$bg-path}play-red-bg.png);
+    background-size: contain;
+}
+.show-play-scene{
+    //opacity: 1;
+    @include animation(play-scene .3s ease-in-out forwards);
+    .face{
+        .hand-left{
+            opacity: 1;
+            @include transition(all .3s 1.2s);  
+            @include animation(hand-left 1s 1.5s infinite);
+        }
+    }
+    .blood{
+        @include animation(play-scene .3s ease-in-out forwards);
+    }
+    .sentence{
+        img{
+            @include animation(game-title .3s .7s ease-in-out forwards);
+        }
+    }
+}
+.getmoney-scene{
+    background: url(#{$bg-path}getmoney-bg.png);
+    background-size: contain;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 0; //得随时改，不然有可能有些元素点击不到
+    opacity: 0;
+    img{
+        width: 100%
+    }
+    .getmoney-100-bg{
+        width: widthToPer(865);
+        margin-left: widthToPer(-(865-640)/2);
+        margin-top: -22%;
+        position: relative;
+        z-index: 1;
+        @include transform(translate3d(50%,-70%,0));
+    }
+    .get-btn{
+        width: widthToPer(301);
+        margin: -15% auto 0;
+        position: relative;
+        z-index: 2;
+        img{
+            opacity: 0;
+        }
+        .hand-right{
+            position: absolute;
+            width: toPer(131,301);
+            right: -19%;
+            top: 32%;
+            @include transform(translate(100%,20%,0))
+        }
+    }
+    .getmoney-main{
+        position: relative;
+        margin: 3% auto;
+        text-align: center;
+        @include transform(translate3d(-1000%,0,0));
+        .get-face{
+            width: widthToPer(330);
+        }
+        .dialogue-left{
+            width: widthToPer(346);
+            position: absolute;
+            left: widthToPer(68);
+            top: 30%;
+            @include transform(scale(0));
+            z-index: 2;
+        }
+        .dialogue-right{
+            width: widthToPer(496);
+            position: absolute;
+            right: widthToPer(40);
+            top: 50%;
+            @include transform(scale(0));
+        }
+        .onehundred-5{
+            width: widthToPer(116);
+            left: widthToPer(20);
+            top: 50%;
+            position: absolute;
+            @include transform(scale(0));
+            z-index: 1;
+        }
+    }
+    .share-btn{
+        width: widthToPer(219);
+        margin: auto;
+        img{
+            opacity: 0;
+        }
+    }
+}
+.show-getmoney-scene{
+    opacity: 1;
+    z-index: 10;
+    .getmoney-100-bg{
+        @include transform(translate3d(0,0,0));
+        @include transition(all .3s ease-in-out);
+    }
+    .get-btn{
+        a img{
+            @include animation(game-title .3s .7s ease-in-out forwards);
+        }
+        .hand-right{
+            opacity: 1;
+            @include transform(translate(0,0,0));
+            @include transition(all .3s 2s);
+            @include animation(hand-left 1s 2.3s infinite);
+        }
+    }
+    .getmoney-main{
+        @include animation(sub-title .4s .2s forwards);
+    }
+    .dialogue-left{
+        @include animation(game-title .3s 1.5s ease-in-out forwards)
+    }
+    .dialogue-right{
+        @include animation(game-title .3s 1s ease-in-out forwards)
+    }
+    .share-btn{
+        img{
+            @include animation(game-title .3s 1.8s ease-in-out forwards); 
+       }
+    }
+    .onehundred-5{
+        @include animation(game-title .3s 2s ease-in-out forwards)
+    }
+}
+.share-scene{
+    background: url(#{$bg-path}getmoney-bg.png);
+    background-size: contain;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 0; //得随时改，不然有可能有些元素点击不到
+    opacity: 0;
+    img{
+        width: 100%;
+    }
+    .share-btn{
+        width: widthToPer(430);
+        margin: 10% auto;
+        img{
+            opacity: 0;
+        }
+    }
+    .share-face{
+        position: relative;
+        margin: auto;
+        text-align: center;
+        @include transform(translate3d(-1000%,0,0));
+        .face{
+            width: widthToPer(397);        
+        }
+        .dialogue-left{
+            width: widthToPer(346);        
+            position: absolute;
+            left: widthToPer(55);
+            top: 55%;
+            @include transform(scale(0));
+        }
+        .dialogue-right{
+            width: widthToPer(562);
+            position: absolute;
+            right: widthToPer(17);
+            top: 51%;
+            @include transform(scale(0));
+        }
+    }
+    .onehundred{
+        div{
+            position: absolute;
+            top: -20%;
+            //@include transform(translate3d(0,-1000%,0));
+            img{
+                -webkit-transform-origin: 50% -100%;
+                transform-origin: 50% -100%;
+            }
+        }
+        .onehundred-4{
+            width: widthToPer(169); 
+            left: widthToPer(455);
+            //top: 60%;
+        }
+        .onehundred-5{
+            width: widthToPer(116);
+            left: widthToPer(20);
+            //top: 80%;
+        }
+        .onehundred-6{
+            width: widthToPer(75);
+            left: widthToPer(372);
+            //top: 90%;
+        }
+        .onehundred-7{
+            width: widthToPer(44);
+            left: widthToPer(152);
+            //top: 67%;
+        }
+        .onehundred-8{
+            width: widthToPer(16);
+            left: widthToPer(40);
+            //top: 74%;
+        }
+    }
+}
+.show-share-scene{
+    opacity: 1;
+    z-index: 10;
+    .share-face{
+        @include animation(sub-title .4s ease-in-out forwards);
+        .dialogue-left{
+            @include animation(game-title .3s .8s ease-in-out forwards);   
+        }
+        .dialogue-right{
+            @include animation(game-title .3s .5s ease-in-out forwards);   
+        }
+    }
+    .share-btn{
+        img{
+            @include animation(game-title .3s .3s ease-in-out forwards);   
+        }
+    }
+    .onehundred{
+        .onehundred-4{
+            //@include animation(drop 5s .8s ease-in-out forwards);
+            top: 60%;
+            @include transition(all 5s .8s ease-in-out);
+            img{
+                @include animation(clockwiseSpin 4s 1s ease-in-out forwards);
+            }
+        }
+        .onehundred-5{
+            //@include animation(drop 8s 1.3s ease-in-out forwards);
+            top: 85%;
+            @include transition(all 8s 1.3s ease-in-out);
+            img{
+                @include animation(clockwiseSpin 6s 2s ease-in-out forwards);
+            }
+        }
+        .onehundred-6{
+            //@include animation(drop 7s 1.8s ease-in-out forwards);
+            top: 90%;
+            @include transition(all 7s 1.8s ease-in-out);
+            img{
+                @include animation(clockwiseSpin 5s 2.5s ease-in-out forwards);
+            }
+        }
+        .onehundred-7{
+            top: 67%;
+            @include transition(all 10s 2s ease-in-out);
+            //@include animation(drop 10s 2s ease-in-out forwards);
+            img{
+                @include animation(clockwiseSpin 6s 2.8s ease-in-out forwards);
+            }
+        }
+        .onehundred-8{
+            top: 74%;
+            @include transition(all 8s 2.5s ease-in-out);
+            //@include animation(drop 8s 2.5s ease-in-out forwards);
+            img{
+                @include animation(clockwiseSpin 5s 3s ease-in-out forwards);
+            }
+        }
+    }
+}
+/*分享指引层*/
+.share-guide{
+    background: rgba(0,0,0,.9);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    @include transition(all .2s ease-in-out);
+    img{
+        width: 100%;
+    }
+    .guide-arrow{
+        /* float: right; */
+        padding-right: 10%;
+        text-align: right;
+        margin-top: 5%;
+        img{
+            width: widthToPer(271);
+        }
+    }
+    .guide-tip{
+        clear: both;
+        line-height: 2;
+        color: #fff;
+        font-size: 1rem;
+        text-align: center;
+        margin: 5% auto 10%;
+        strong{
+            font-weight: bold;
+        }
+    }
+    .guide-btn{
+        width: widthToPer(137);
+        margin: auto
+    }
+}
+.show-share-guide{
+    opacity: 1;
+    z-index: 100;
+    @include transition(all .2s ease-in-out);
+}
+.hide-scene{
+    @include transform(translateY(-800%));
+    @include transition(all .7s ease-in-out);
+}
+.hide-stage-scene{
+    @include transform(translateX(-200%));
+    @include transition(all .3s ease-in-out);
+}
+@media screen and (min-height:450px){
+    .show-play-scene {
+        .blood{
+            bottom:  5%
+        }
+    }
+    .show-getmoney-scene{
+        .getmoney-100-bg{
+            margin-top: -13%
+        }
+    }
+}
+@media screen and (min-width: 374px){
+    .play-scene .blood .blood-value{
+        font-size: .75rem;
+    }
+    .play-scene .blood .blood-value .change{
+        font-size: 1rem;
+    }
+}
+@media screen and (min-width: 400px){
+    .play-scene .blood .blood-value{
+        font-size: .95rem;
+    }
+    .play-scene .blood .blood-value .change{
+        font-size: 1.2rem;
+    }
+}
+@media screen and (min-width: 450px){
+    .play-scene .blood .blood-value{
+        font-size: 1rem;
+    }
+    .play-scene .blood .blood-value .change{
+        font-size: 1.3rem;
+    }
+}
+@media screen and (min-width: 450px){
+    .play-scene .blood .blood-value{
+        font-size: 1rem;
+    }
+    .play-scene .blood .blood-value .change{
+        font-size: 1.3rem;
+    }
+}
+@media screen and (min-width: 550px){
+    .play-scene .blood .blood-value{
+        font-size: 1.2rem;
+    }
+    .play-scene .blood .blood-value .change{
+        font-size: 1.5rem;
+    }
+}
+@media screen and (min-width: 640px){
+    /* .theme-scene,.stage-scene,.play-scene, .getmoney-scene, .share-scene{
+        width: 640px;
+        left: 50%;
+        margin-left: -320px;
+    } */
+}
+@import "animation.scss";

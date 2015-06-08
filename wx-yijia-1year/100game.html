@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+        <meta name="keywords" content="">
+        <meta name="description" content="" />
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="format-detection" content="telephone=no">
+        <title>一加给你一百块</title>
+        <link href="http://statics.oneplus.cn/img/oneplus.ico" rel="shortcut icon" type="image/x-icon">
+        <link rel="stylesheet" href="game.css?v=6546">
+        <script>
+            //判断是否为PC设备，如果是跳转到PC版
+            var browser = navigator.userAgent;
+            if(browser.indexOf('iPhone') > -1 || browser.indexOf('iPad') > -1||browser.indexOf('Android') >=0){
+            }else{
+                //window.location.href = "http://cheers.oneplus.cn/activity/1year/1217.html";
+            }
+        </script>
+    </head>
+    <body>
+        <!--横竖屏提示-->
+        <div class="screen-tip">
+            <div>
+                <img src="img/screen-tip.gif" alt="">
+                <p>为了更好的体验，请使用竖屏浏览</p>
+            </div>
+        </div>
+        <!--<div class="bg">
+             向下的箭头
+            <div class="arrow-down"></div>
+        </div> -->
+        <div class="loading"><img src="img/loader.gif" height="32" width="32" alt=""></div>
+        <div class="onehundred">
+            <div class="onehundred-1"><img src="img/game/100yuan-1.png" alt=""></div>
+            <div class="onehundred-2"><img src="img/game/100yuan-2.png" alt=""></div>
+            <div class="onehundred-3"><img src="img/game/100yuan-3.png" alt=""></div>
+        </div>
+        <!--首屏-->
+        <section class="theme-scene">
+            <div class="red-hat">
+                <img class="hat" src="img/game/hat.png" alt="">
+                <img class="hat-shadow" src="img/game/hat-shadow.png" alt="">
+            </div>
+            <div class="sub-title" id="face">
+                <img src="img/game/sub-title.png" alt="">
+                <img src="img/game/fire.png" alt="" class="fire">
+            </div>
+            <div class="game-title"><img src="img/game/big-title.png" alt=""></div>
+            <h1 class="logo"><img src="img/game/logo.png" alt="一加手机"></h1>
+        </section>
+        
+        <!--第二屏-->
+        <section class="stage-scene">
+            <div class="man">
+                <img src="img/game/man.png" alt="">
+                <img class="arm" src="img/game/arm.png" alt="">
+            </div>
+            <div class="cheat-sentence"><img src="img/game/cheat-sentence.png" alt=""></div>
+        </section>
+        <!--第三屏-->
+        <section class="play-scene">
+            <div class="sentence"><img id="changeSen" src="img/game/sentence-init.png" alt=""></div>
+            <div class="face">
+                <img id="changFace" src="img/game/face-init.png" alt="">
+                <img class="hand-left" src="img/game/hand-left.png" alt="">
+            </div>
+            <div class="blood">
+                <img src="img/game/blood-bg.png" alt="">
+                <div class="blood-red"><img src="img/game/blood-red.png" alt=""></div>
+                <p class="blood-value">
+                    <span id="bloodValue" class="change">0</span>
+                    <span class="total">/15</span>
+                </p>
+            </div>
+        </section>
+        <!--第四屏-->
+        <section class="getmoney-scene">
+            <div class="getmoney-100-bg"><img src="img/game/getmoney-100.png" alt=""></div>
+            <div class="get-btn">
+                <a href="http://cc.weipaidang.net/wepartner_cc/wepartner/mobile.php?act=card_js_customcode&card_id=pQiv-tplgadZ9QPBzMzmrP8CBbzY&weid=64&wechat_card_js=1"><img src="img/game/get-btn.png" alt=""></a>
+                <img class="hand-right" src="img/game/hand-right.png" alt="">
+            </div>
+            <div class="getmoney-main">
+                <img class="get-face" src="img/game/get-face.png" alt="">
+                <img class="dialogue-left" src="img/game/renxing.png" alt="">
+                <img class="dialogue-right" src="img/game/geini.png" alt="">
+                <img class="onehundred-5" src="img/game/100yuan-5.png" alt="">
+            </div>
+            <div class="share-btn"><img src="img/game/share-s.png" alt=""></div>
+        </section>
+        <!--已领-->
+        <section class="share-scene">
+            <div class="share-btn"><img src="img/game/share-b.png" alt=""></div>
+            <div class="share-face">
+                <img class="face" src="img/game/share-face.png" alt="">
+                <img class="dialogue-left" src="img/game/renxing.png" alt="">
+                <img class="dialogue-right" src="img/game/sancai.png" alt="">
+            </div>
+            <div class="onehundred">
+                <div class="onehundred-4"><img src="img/game/100yuan-4.png" alt=""></div>
+                <div class="onehundred-5"><img src="img/game/100yuan-5.png" alt=""></div>
+                <div class="onehundred-6"><img src="img/game/100yuan-6.png" alt=""></div>
+                <div class="onehundred-7"><img src="img/game/100yuan-7.png" alt=""></div>
+                <div class="onehundred-8"><img src="img/game/100yuan-8.png" alt=""></div>
+            </div>
+        </section>
+        <!-- 分享指引 -->
+        <section class="share-guide">
+            <div class="guide-arrow">
+                <img src="img/game/guide-arrow.png" alt="">
+            </div>
+            <div class="guide-tip">
+                <p>点击右上角</p>
+                <p><strong>“分享给朋友”</strong>或<strong>“发送到朋友圈”</strong></p>
+            </div>
+            <div class="guide-btn"><img src="img/game/guide-btn.png" alt=""></div>
+        </section>
+        <script src="zepto.min.js"></script>
+        <script src="game.js"></script>
+        <script type="text/javascript">
+            var global_url = {
+                statics: 'http://cxai.d3.devel.oneplus.cn/src/promotion/1year'
+            };
+            (function() {
+                var a = document.createElement("script");
+                a.type = "text/javascript";
+                a.async = true;
+                a.src = "http://analytics.oneplus.cn/opdc.js?v=201407102142";
+                var b = document.getElementsByTagName("script")[0x0];
+                b.parentNode.insertBefore(a, b);
+            })();
+    </script>
+    </body>
+</html>

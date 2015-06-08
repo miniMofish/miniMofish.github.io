@@ -1,0 +1,2174 @@
+@charset "UTF-8";
+
+/*css reset*/
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,form,legend,input,button,textarea,p,th,td,fieldset,section,article,aside,label,select,button,a,span,i{margin: 0;padding: 0;}
+table{border-collapse: collapse;border-spacing: 0}
+ol,ul,li{list-style: none}
+address, caption, em, i, strong, th{font-weight:normal;font-style:normal;}
+fieldset,img{border: 0;}
+:focus{outline: none}
+h1, h2, h3, h4, h5, h6{font-weight:normal;font-size:100%;}
+a{text-decoration: none;}
+/*css reset end*/    
+
+/*css3属性兼容*/
+@mixin radius($radiusVal:5px){  //圆角
+    -webkit-border-radius: $radiusVal;
+       -moz-border-radius: $radiusVal;
+        -ms-border-radius: $radiusVal;
+         -o-border-radius: $radiusVal;
+            border-radius: $radiusVal;
+}
+@mixin transition($transition){
+    -webkit-transition: $transition;
+       -moz-transition: $transition;
+        -ms-transition: $transition;
+         -o-transition: $transition;
+            transition: $transition;
+}
+@mixin transform($transform){
+    -webkit-transform: $transform;
+       -moz-transform: $transform;
+        -ms-transform: $transform;
+         -o-transform: $transform;
+            transform: $transform;
+}
+@mixin animation($animation){
+    -webkit-animation: $animation;
+       -moz-animation: $animation;
+        -ms-animation: $animation;
+         -o-animation: $animation;
+            animation: $animation;
+}
+@mixin scale($scale: 1.2){
+    -webkit-transform: scale($scale);
+       -moz-transform: scale($scale);
+        -ms-transform: scale($scale);
+         -o-transform: scale($scale);
+            transform: scale($scale);
+}
+@font-face {
+    /* font-properties */
+    font-family: number;
+    src:url('img/DINAlternateBold.ttf');
+}
+
+/*整站格调*/
+html,body{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    font-family: Helvetica;
+    @include transform(translate3d(0,0,0));
+}
+.clearfix:after{
+    content: '\200B';
+    display: block;
+    clear: both;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+}
+@mixin absolute($left,$top){
+    position: absolute;
+    left: 50%;
+    margin-left: $left;
+    top: 50%;
+    margin-top: $top;
+}
+/*文字统一样式*/
+.text-area{
+    width: 80%;
+    bottom: 2%;
+    left: 12%;
+    position: absolute;
+    .hd{
+        text-align: left;
+        line-height: 1.3;
+        opacity: 0;
+        left: -20px;
+        @include transform(translateX(-20px));
+        @include transition(all .5s);
+    }
+    .bd{
+        text-align: right;
+        line-height: 1.6;
+        opacity: 0;
+        @include transform(translateX(-20px));
+        @include transition(all .5s);
+    }
+}
+.text-time{
+    /* background: #f9d3d4; */
+    color: #DB152D;
+    font-family: number;
+    img{
+        width: 25.5%;
+    }
+    font-size: .875rem; // 16px
+}
+.text-title{
+    color: #1c2837;
+    font-size: 1.5rem;  //36px
+}
+.text-disc{
+    color: #1c2837;
+    font-size: .875rem; //14px
+}
+.ending-text{
+    text-align: center;
+    line-height: 1.8;
+    position: absolute;
+    width: 100%;
+    bottom: 0%;
+    opacity: 0;
+    .text-disc{
+        margin-top: 10px;
+    }
+    .happy{
+        color: #DB152D;
+        font-size: 1rem;
+    }
+}
+/*统一显示文字*/
+.show-founder-scene, .show-build-scene, .show-phone-scene, .show-sale-online,.show-bamboo-scene, .show-jbl-scene, .show-launch-scene, .show-ending-scene{
+    .text-area{
+        .hd{
+            opacity: 1;
+            @include transform(translateX(0px));
+            @include transition(all .5s .5s);
+        }
+        .bd{
+            opacity: 1;
+            @include transform(translateX(0px));
+            @include transition(all .8s .8s);
+        }
+    }
+}
+.first-scene, .founder-scene, .build-scene, .phone-scene, .sale-online-scene, .bbsuser-scene, .weibo-scene, .bamboo-scene, .jbl-scene, .launch-scene, .ending-scene, .main-one-scene, .recruit-scene{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: 0;
+}
+.main-one-scene{
+    opacity: 1
+}
+
+/*load*/
+.loading{
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    position: relative;
+    z-index: 12;
+    img{
+        @include absolute(-26px,-26px);
+    }
+}
+/*背景*/
+.bg{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #f9f3ed;
+    z-index: 0;
+    @include transition(all .3s);
+    .arrow-down{
+        width: 25px;
+        height: 14px;
+        background: url('img/arrow-down.png') center bottom no-repeat;
+        position: absolute;
+        left: 50%;
+        margin-left: -12px;
+        bottom: 10px;
+        z-index: 10;
+        @include animation(tipsUp 1.2s ease-in-out infinite);
+    }
+    .hide-arrow-down{
+        display: none;
+    }
+}
+.red-bg{
+    background: #D81939;
+    @include transition(all .3s);
+    .arrow-down{
+        background-position-y: top;
+    }
+}
+.music-btn{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 12;
+    display: none;
+    span{
+        display: block;
+        width: 30px;
+        height: 30px;
+        background: url('img/music-btn.png') no-repeat;
+    }
+    .stop-btn{
+        background-position: -30px top;
+    }
+    .start-btn{
+        background-position: -30px -30px;
+    }
+}
+.music-btn-red{
+    .stop-btn{
+        background-position: left top;
+    }
+    .start-btn{
+        background-position: left -30px;
+    }
+}
+/*首屏*/
+.first-content{
+    width: 100%;
+    text-align: center;
+    margin-top: 8%;
+    .big-title{
+        width: 75%;
+        max-width: 407px;
+        margin: auto;
+        margin-top: 10%;
+        text-align: center;
+        opacity: 0;
+        @include transform(translateY(-100%));
+        @include transition(all .3s);
+        img{
+            width: 100%;
+        }
+    }
+    .naughty-line{
+        width: 100%;
+        max-width: 640px;
+        margin:auto;
+        @include transform(translateY(-103%));
+        img{
+            width: 100%;
+        }
+    }
+    .first-hd{
+        @include transform(translateY(0));
+    }
+    .first-info{
+        position: relative;
+        color: #fff;
+    }
+    .big-time{
+        width: 100%;
+        margin: auto;
+        opacity: 0;
+        text-align: center;
+        position: absolute;
+        @include transform(translateY(30%));
+        @include transition(all .3s .3s);
+        img{
+            width: 40%;
+            max-width: 206px;
+        }
+    }
+    .first-disc-text{
+        width: 80%;
+        max-width: 324px;
+        margin: auto;
+        opacity: 0;
+        text-align: center;
+        font-size: .9rem;
+        line-height: 1.6;
+        @include transform(translateY(5%));
+        p{
+            margin-bottom: 7px;
+        }
+    }
+}
+
+.show-first-scene {
+    opacity: 1;
+    @include transition(all .2s);
+    .big-title{
+        @include animation(bigtitle .6s .2s ease-in-out both);
+    }
+    .big-time{
+        opacity: 1;
+        @include transform(translateY(0));
+    }
+}
+.change-first-scene{ 
+    .big-title{
+        margin-top: 3%;
+        width: 70%;
+        left: 25%;
+        @include transition(all .2s);
+    }
+    .big-time{
+        opacity: 0;
+        @include transform(translateY(30%));
+        @include transition(all .3s);
+    }
+    .first-disc-text{
+        opacity: 1;
+        @include transform(translateY(-5%));
+        @include transition(all .3s .2s);
+    }
+    .first-hd{
+        @include transform(translateY(-1%));
+        @include transition(all .2s);   
+    }
+}
+
+.one-num{
+    @include transform(scale(0));
+    position: absolute;
+    left: 144px;
+    top: 108px;
+    z-index: 4;
+    width: 108px;
+    height: 216px;
+    polygon{
+        fill: #fff
+    }
+}
+/*创始人*/
+.founder-scene{
+    .five-founder{
+        position: absolute;
+        width: 396px;
+        height: 396px;
+        left: 50%;
+        margin-left: -198px;
+        top: -15%;
+        circle, polyline{
+            opacity: 0
+        }
+        path,line{
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+        }
+        .peter-eyes{
+            position: absolute;
+            left: 234px;
+            top: 88px;
+            opacity: 0;
+        }
+        .peter-head{
+            position: absolute;
+            left: 202px;
+            top: 5px;
+            z-index: 5;
+            width: 129.9px;
+            height: 213.7px;
+            opacity: 0;
+        }
+        .peter-body{
+            position: absolute;
+            left: 174px;
+            top: 180px;
+            z-index: 3;
+            width: 189.4px;
+            height: 156px;
+        }
+        .laughfing{
+            position: absolute;
+            left: 306px;
+            top: 75px;
+            z-index: 2;
+            width: 91px;
+            height: 138px;
+        }
+        .neil{
+            position: absolute;
+            left: 0;
+            top: 29px;
+            width: 143.8px;
+            height: 355.3px;
+            z-index: 4;
+        }
+        .xuan{
+            position: absolute;
+            left: 50px;
+            top: 176px;
+            z-index: 5;
+            width: 341.5px;
+            height: 216px;
+            opacity: 0; //脸挡住1了
+        }
+        .fifth{
+            position: absolute;
+            left: 128px;
+            top: 44px;
+            z-index: 1;
+            width: 70.8px;
+            height: 140.5px;   
+        }
+        .founder-text{
+            font-size: .85rem;
+            color: #727171;
+            line-height: 1.8;
+            text-align: center;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            opacity: 0;
+            @include transition(all .5s);
+        }
+    }
+}
+
+.show-founder-scene{
+    opacity: 1;
+    .one-num{
+        @include transform(scale(1)); 
+        @include transition(all .3s);
+        polygon{
+            fill: #D81939;
+            @include transition(all .2s);
+        }
+    }
+    .five-founder{
+        path,line{
+            stroke-dashoffset: 0;
+        }
+        circle, polyline{
+            opacity: 1;
+            @include transition(all 0s 1s);
+        }
+        .peter-eyes{
+            opacity: 1;
+            @include transition(all 0s .4s);
+        }
+        .peter-head{
+            opacity: 1;
+             @include transition(all 0s .3s);
+            path,line{
+                @include transition(all 1.5s .3s);
+            }
+        }
+        .peter-body{
+            path,line{
+                @include transition(all 1.5s .5s);
+            }   
+        }
+        .xuan{
+            opacity: 1;
+            @include transition(all 0s .8s);
+        }
+        .xuan,.laughfing{
+            path,line{
+                @include transition(all 1.5s .8s);
+            }
+        }
+        .fifth, .neil{
+            path,line{
+                @include transition(all 1.5s 1s);
+            }
+        }
+    }
+}
+.build-scene{
+    .build-oneplus{
+        position: absolute;
+        width: 396px;
+        height: 396px;
+        left: 50%;
+        margin-left: -198px;
+        top: -15%;
+    }
+    svg,.build-oneplus div{
+        position: absolute;
+    }
+    div{
+        overflow: hidden;
+    }
+    /* circle, polyline{
+            opacity: 0
+    } */
+    .build-car, .build-hang-left, .build-hang-right{
+        opacity: 0;
+        path,line{
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+        }
+    }
+    .build-car{
+        left: 0;
+        bottom: 0;
+        width: 396px; 
+        height: 217px;
+        path,line{
+            stroke-dasharray: 500;
+            stroke-dashoffset: 500;
+        }
+    }
+    .build-hang-left{
+        width: 198px;
+        height: 312.5px;
+        left: 0px;
+        bottom: 80px
+    }
+    .build-hang-right{
+        width: 135.9px;
+        height: 200.3px;
+        right: 10px;
+        bottom: 147px;
+
+    }
+    .never-settle-wrap{
+        right: 200px;
+        bottom: 130px;
+        width: 112px;
+        height: 89px;
+        opacity: 0;
+        position: absolute;
+    }
+    .never-settle{
+        right: 0px;
+        bottom: 0px;
+        width: 112px;
+        height: 89px;
+    }
+    .n{
+        left: 18px;
+        bottom: 47px;
+        width: 16px;
+        height: 31px;
+    }
+    .build-rope-left{
+        width: 4.3px;
+        height: 0px;
+        left: 85px;
+        top: 86px;
+        @include transition(all .3s);
+        svg{
+            width: 4.3px;
+            height: 110.9px;
+        }
+    }
+    .hang-plus{
+        width: 54.5px;
+        height: 270px;  //135px
+        position: absolute;
+        left: 233px;
+        top: -54px;
+    }
+    .plus{
+        bottom: 0px;
+        width: 54.5px;
+        height: 55px;
+        opacity: 0;
+    }
+    .build-rope-right{
+        right: 25px;
+        top: 50%;
+        width: 4.3px;
+        height: 0px;
+        @include transition(all .3s);
+        svg{
+            width: 4.3px;
+            height: 110.9px;
+        }
+    }
+    .build-rope-md{
+        width: 79px;
+        height: 0px;
+        top: 56px;
+        left: 141px;
+        @include transition(all .3s);
+        svg{
+            width: 79px;
+            height: 57.5px;
+        }
+    }
+}
+.show-build-scene{
+    opacity: 1;
+    .one-num{
+        @include transform(scale(1)); 
+        polygon{
+            fill: #D81939;
+        }
+    }
+    .build-rope-left{
+        height: 110px;
+        @include transition(all .5s .9s);
+    }
+    .build-rope-right{
+        height: 85px;
+        @include transition(all .5s .7s);
+    }
+    .build-rope-md{
+        height: 57.5px;
+        @include transition(all .5s .7s);
+    }
+    .never-settle-wrap{
+        right: 224px;
+        opacity: 1;
+        @include transition(all .5s .7s);   
+        .n{
+
+        }
+    }
+    .plus{
+        opacity: 1;
+        /* bottom: 228px; */
+        @include transition(all .5s .6s);
+    }
+    .build-car, .build-hang-left, .build-hang-right{
+        opacity: 1;
+        path,line{
+            stroke-dashoffset: 0;
+        }
+    }
+    .build-car{
+        path,line{
+            @include transition(all 3s);
+        }
+    }
+    .build-hang-left, .build-hang-right{
+        @include transition(all 0s .4s);
+        path,line{
+            @include transition(all 3s .4s);
+        }
+    }
+
+}
+.animate-build-scene{
+    .n-transform{
+        bottom: 55px;
+        @include transform(rotate(10deg));
+        @include transition(all .8s .7s);
+    }
+    .build-rope-left.rope-up{
+        @include animation(build-rope-left .8s .9s forwards);
+    }
+    .build-rope-right.rope-up{
+        @include animation(build-rope-right .8s 1s forwards);
+    }
+    .plus-up{
+        @include animation(plus-up 1s 1s forwards);
+    }
+    .hang-plus{
+        @include animation(swingplus 2s 1.8s ease-in-out infinite alternate);
+    }
+}
+
+.phone-exhibit, .sale-online{
+    width: 478px;
+    height: 435px;
+    position: absolute;
+    top: -18%;
+    right: 50%;
+    margin-right: -239px;
+}
+/*手机面板*/
+.phone-scene{
+    .paper{
+        width: 0px;
+        height: 435px;
+        position: absolute;
+        overflow: hidden;
+        top: 0px;
+        right: 0;
+        img{
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+    }
+    .paper-end{
+        width: 48px;
+        height: 433px;
+        position: absolute;
+        overflow: hidden;
+        right: 0;
+        top: 0px;
+    }
+    .phone-border{
+        width: 145.9px;
+        height: 293.7px;
+        position: absolute;
+        left: 165px;
+        top: 78px;
+        path{
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+        }
+    }
+    /* .phone{
+        width: 145.9px;
+        height: 293.7px;
+        position: absolute;
+        left: 165px;
+        top: 78px;
+        opacity: 0;
+    } */
+    .phone-highlight{
+        width: 148px;
+        height: 299px;
+        position: absolute;
+        left: 165px;
+        top: 78px;
+        opacity: 0;
+    }
+    .summary{
+        width: 223px;
+        height: 315px;
+        position: absolute;
+        left: 166px;
+        top: 88px;
+        opacity: 0;
+        path,line{
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+        }
+        /* polygon, polyline{
+            opacity: 0;
+        } */
+    }
+    .rule{
+        width: 63px;
+        height: 291.2px;
+        position: absolute;
+        left: 68px;
+        top: 92px;
+        path{
+            opacity: 0;
+        }
+        path,line{
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+        }
+        
+    }
+    .pencil{
+        width: 27px;
+        height: 279.7px;
+        position: absolute;
+        top: 97px;
+        right: 42px;
+        rect, polygon{
+            opacity: 0;
+        }
+        line{
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+        }
+    }
+}
+.show-phone-scene{
+    opacity: 1;
+    .paper{
+        width: 430px;
+        @include transition(all .8s);
+    }
+    .paper-end{
+        right: 430px;
+        @include transition(all .8s);
+    }
+    .phone-border{
+        path{
+            stroke-dashoffset: 0;
+            @include transition(all 1s .8s); 
+        }
+    }
+    /* .phone{
+        opacity: 1;
+        @include transition(all .8s 1.6s);   
+    } */
+    .phone-highlight{
+        opacity: 1;
+        @include transition(all .8s 1.6s);
+    }
+    .summary{
+        opacity: 1;
+        @include transition(all 0s 1.5s);
+        path,line{
+            stroke-dashoffset: 0;
+            @include transition(all 1s 1.5s); 
+        } 
+        /* polygon, polyline{
+            opacity: 1;
+            @include transition(all 1s 1.5s);
+        } */
+    }
+    .rule{
+        path{
+            opacity: 1;
+        }   
+        path,line{
+            stroke-dashoffset: 0;
+            @include transition(all 1s 1.3s);
+        }
+    }
+    .pencil{
+        rect, polygon{
+            opacity: 1;
+            @include transition(all 1s 1s);   
+        }
+        line{
+            stroke-dashoffset: 0;
+            @include transition(all 1s 1s);
+        }
+    }
+}
+.sale-online-scene{
+    .s1-cover{
+        width: 497.2px;
+        height: 437.2px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        -webkit-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+        -ms-backface-visibility: hidden;
+        backface-visibility: hidden;
+
+        -webkit-transform-origin: 0% 50%;
+        -moz-transform-origin: 0% 50%;
+        -ms-transform-origin: 0% 50%;
+        -o-transform-origin: 0% 50%;
+        transform-origin: 0% 50%;
+
+        @include transform(rotateY(90deg));
+    }
+    .computer{
+        width: 394px;
+        height: 447px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        path, polyline, line{
+            stroke-dasharray: 2000;
+            stroke-dashoffset: 2000;   
+        }
+        polyline,rect{
+            opacity: 0;
+        }
+    }
+    .book-num{
+        width: 243px;
+        height: 152px;
+        position: absolute;
+        right: 35px;
+        top: 72px;
+        opacity: 0;
+        .num{
+            color: #fff;
+            font-size: 2.8rem;
+            text-align: center;
+            margin: 11px auto 4px;
+            width: 175px;
+            height: 41px;
+            background: url('img/000.png') no-repeat;
+            img{
+                vertical-align: top;
+                opacity: 0
+            }
+        }
+        .button{
+            width: 96px;
+            height: 38px;
+            background: #CB1F38;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            position: absolute;
+            right: 20px;
+            bottom: 38px;
+        }
+        .click-btn{
+            background: #fff;
+            border-color: #D81939;
+        }
+        .cursor{
+            width: 16px;
+            height: 26.3px;
+            bottom: 8px;
+            right: 30px;
+            position: absolute;
+        }
+    }
+}
+.show-sale-online{
+    opacity: 1;
+    .s1-cover{
+        @include animation(scaleCover .8s ease-in-out forwards);
+    }
+    .computer{
+        path, polyline, line{
+            stroke-dashoffset: 0;   
+            @include transition(all 1.3s .8s);
+        }
+        polyline,rect{
+            opacity: 1;
+            @include transition(all .8s 1s);
+        } 
+    }
+    .book-num{
+        opacity: 1;
+        @include transition(all .3s 1.5s);
+        .cursor{
+            bottom: 42px;
+            right: 30px;
+            @include transition(all .3s 1.6s);
+        }
+        .button{
+            @include animation(clickbtn .3s 1.9s); 
+        }
+        .num{
+            background-image: url('img/14000-bg.gif');
+            @include transition(all 0s 2.1s);
+            img{
+                opacity: 1;
+                @include transition(all 0s 2.7s);
+            }
+        }
+    }
+}
+.bbs-title, .weibo-title{
+    position: absolute;
+    left: 0;
+    top: -15%;
+    color: #fff;
+    opacity: 0;
+    time{
+        font-size: 2rem;
+        padding: 3px;
+        font-family: number;
+    }
+    p{
+        font-size: 2rem;
+        padding: 5px 0;
+    }
+    @include transition(all .5s);
+
+}
+/*社区*/
+.bbsuser-scene{
+    @include transition(all .3s);
+}
+//.bbsuser-scene{
+    .bbs-content{
+        width: 488px;
+        height: 408px;
+        position: absolute;
+        top: 50%;
+        right: 50%;
+        margin-right: -244px;
+        margin-top: -180px;
+        .bbsuser-num{
+            width: 488px;
+            height: 408px;
+            position: relative;
+            z-index: 2;
+            top: 50px;
+            opacity: 0;
+            img{
+                width: 100%;
+            }
+        }
+        .connect-line{
+            position: absolute;
+            left: 0;
+            top: 161px;
+        }
+        .bbs-cirle{
+            width: 19.6px;
+            height: 19.7px;
+            position: absolute;
+            left: 253px;
+            top: 0px;
+            z-index: 1;
+            @include transform(scale(0));
+        }
+        /* .bbs-user{
+            width: 79.8px;
+            height: 146.8px;
+        } */
+        .connect-line-left{
+            position: absolute;
+            width: 260px;
+            left: 0;
+            top: 5px;
+        }
+        .line{
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 0px;
+            overflow: hidden;
+            svg{
+                width: 149.6px;
+                height: 69.7px;
+            }
+        }
+        .bbs-chat-icon{
+            width: 82.5px;
+            height: 83.9px;
+            position: absolute;
+            left: 30px;
+            top: 41px;
+            @include transform(scale(0));
+        }
+        .bbs-plus{
+            width: 36.6px;
+            height: 36.6px;
+            position: absolute;
+            top: 135px;
+            left: 109px;
+            z-index: 3;
+            @include transform(scale(0));
+        }
+        .short-line{
+            position: absolute;
+            left: 97px;
+            top: 124px;
+            height: 0px;
+            overflow: hidden;
+            svg{
+                width: 16.3px;
+                height: 12.2px;
+            }
+        }
+        .line-end{
+            position: absolute;
+            left: 70px;
+            top: 166px;
+            height: 0px;
+            overflow: hidden;
+            svg{
+               width: 42.5px;
+               height: 40.3px; 
+            }
+        }
+        .connect-line-md{
+            position: absolute;
+            left: 206px;
+            top: 18px;
+            height: 0px;
+            overflow: hidden;
+            svg{
+                width: 53.3px;
+                height: 51.4px;
+            }
+        }
+        .connect-line-rt{
+            position: absolute;
+            left: 322px;
+            top: 7px;
+            height: 0px;
+            overflow: hidden;
+            svg{
+                width: 77.6px;
+                height: 58.6px;
+            }
+        }
+        .bbs-user{
+            width: 80px;
+            height: 147px;
+            position: absolute;
+            right: 20px;
+            bottom: 7px;
+            z-index: 3;
+            .bbs-user-head{
+                position: absolute;
+                left:0px;
+                top: 8px;
+                z-index: 2;
+                @include transform(scale(0));
+            }
+            .bbs-user-body{
+                position: absolute;
+                left: 0;
+                bottom:0;
+                z-index: 1;
+                @include transform(scale(0));
+            }
+            .bbs-user-eye{
+                width: 32px;
+                height: 19px;
+                position: absolute;
+                z-index: 3;
+                left: 10px;
+                top: 38px;
+                opacity: 0;
+            }
+        }
+    }
+//}
+.show-bbsuser-scene{
+    opacity: 1;
+    .bbs-content{
+        .bbs-title{
+            @include animation(bbs-weibo-title .5s forwards);  
+        }
+        .bbsuser-num{
+            @include animation(bbs-weibo-num .3s .2s forwards);  
+        }
+        .bbs-chat-icon{
+            @include animation(bbs-weibo-scale .5s .5s forwards);
+        }
+        .bbs-cirle{
+            @include animation(bbs-weibo-scale .5s .7s forwards);
+        }
+        .bbs-plus{
+            @include animation(bbs-weibo-scale .5s .7s forwards);
+        }
+        .short-line{
+            height: 14.2px;
+            @include transition(all .2s .8s);
+        }
+        .line-end{
+            height: 42px;
+            @include transition(all .5s .8s);
+        }
+        .line{
+            height: 70px;
+            @include transition(all .5s .7s);
+        }
+        .connect-line-md{
+            height: 52px;
+            @include transition(all .5s .5s);
+        }
+        .connect-line-rt{
+            height: 60px;
+            @include transition(all .5s .5s);
+        }
+        .bbs-user{
+            .bbs-user-head{
+                @include animation(bbs-weibo-scale .5s 1s forwards);
+            }
+            .bbs-user-body{
+                @include animation(bbs-weibo-scale .5s .8s forwards);
+            }
+            .bbs-user-eye{
+                //@include transition(opacity 0 1s);
+                @include animation(bbs-user-eye 3s 1.5s cubic-bezier(.07,.1,.24,-0.27) infinite);
+            }
+        }  
+    }
+}
+//微博
+.weibo-content{
+    width: 497px;
+    height: 409px;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    margin-right: -248px;
+    margin-top: -180px;
+    .weibofans-num{
+        width: 497px;
+        height: 409px;
+        position: relative;
+        z-index: 2;
+        top: 50px;
+        opacity: 0;
+        @include transition(all .5s);
+        img{
+            width: 100%;
+        }
+    }
+    .weibo-animate{
+        width: 497px;
+        height: 195px;
+        position: absolute;
+        left: 0;
+        top: 170px;
+        &>img{
+            position: absolute;
+            @include transform(scale(0))
+        }
+        &>div{
+            position: absolute;
+            height: 0;
+            overflow: hidden;
+        }
+        .weibo-icon{
+            left: 16px;
+            top: 43px;
+            z-index: 2;
+            @include transform(scale(0));
+            @include transition(all .3s);
+        }
+        .right-icon{
+            left: 175px;
+            top: 0;
+            z-index: 3;
+            @include transform(scale(0));
+            @include transition(all .3s);
+        }
+        .weibo-circle-lf{
+            left: 86px;
+            bottom: 0;
+            @include transform(scale(0));
+            @include transition(all .3s);
+        }
+        .weibo-circle-rt{
+            left: 336px;
+            top: 43px;
+            @include transform(scale(0));
+            @include transition(all .3s);
+        }
+        .weibo-line-bt{
+            left: 74px;
+            bottom: 13px;
+        }
+        .weibo-line-lf{
+            left: 110px;
+            top: 26px;
+            z-index: 1;
+        }
+        .weibo-line-md{
+            left: 213px;
+            top: 20px;
+        }
+        .weibo-line-rt{
+            height: 65px;
+            width: 0px;
+            left: 346px;
+            top: 15px;
+        }
+        .round-wave{
+            width: 36px;
+            height: 37px;
+            left: 434px;
+            bottom: 128px;
+        }
+        .weibo-eye{
+            width: 57px;
+            height: 140px;
+            right: 64px;
+            top: 71px;
+            opacity: 0;
+            @include transform(scale(1));
+        }
+    }
+}
+.show-weibo-scene{
+    opacity: 1;
+    .weibo-content{
+        .weibo-title{
+            @include animation(bbs-weibo-title .5s forwards);  
+        }
+        .weibofans-num{
+            @include animation(bbs-weibo-num .3s .2s forwards);  
+        }
+        .weibo-animate{
+            .weibo-icon{
+                @include animation(bbs-weibo-scale .5s .5s forwards);
+            }
+            .weibo-circle-lf{
+                @include animation(bbs-weibo-scale .3s .5s forwards);
+            }
+            .weibo-line-bt{
+                height: 49px;
+                @include transition(all .3s .8s);
+            }
+            .right-icon{
+                @include animation(bbs-weibo-scale .3s .7s forwards);
+            }
+            .weibo-line-lf{
+                height: 34px;
+                @include transition(all .3s .8s);
+            }
+            .weibo-line-md{
+                height: 30px;
+                @include transition(all .3s .8s);
+            }
+            .weibo-circle-rt{
+                @include animation(bbs-weibo-scale .3s .8s forwards);
+            }
+            .weibo-line-rt{
+                width: 41px;
+                @include transition(all .3s 1s);
+            }
+            .round-wave{
+                @include animation(bbs-weibo-scale .3s 1.2s forwards);
+            }
+            .weibo-eye{
+                opacity: 1;
+                @include transition(all .3s 1s);
+            }
+        }
+    }
+
+}
+/*竹质手机*/
+.bamboo-scene{
+    @include transition(all .3s);
+}
+.bamboo-content{
+    width: 464px;
+    height: 423px;
+    position: absolute;
+    left: 50%;
+    margin-left: -233px;
+    top: -15%;
+    .zhuzhi-leaf{
+        width: 466px;
+        height: 422px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 3;
+        opacity: 0;
+    }
+    .bamboo{
+        width: 464px;
+        height: 423px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 2;
+        path,line{
+            stroke-dasharray: 800;
+            stroke-dashoffset: 800;
+        }   
+    }
+    .bamboo-phone{
+        width: 145.9px;
+        height: 293.7px;
+        position: absolute;
+        left: 164px;
+        top: 68px;
+        z-index: 2;
+        opacity: 0;
+    }
+    .una{
+        width: 136px;
+        height: 221px;
+        position: absolute;
+        left: 46px;
+        bottom: 30px;
+        z-index: 3;
+        opacity: 0;
+        path, line{
+            stroke-dasharray: 800;
+            stroke-dashoffset: 800;
+        }
+        .una-head{
+            width: 131.8px;
+            height: 137.9px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .una-face{
+            width: 131px;
+            height: 111px;
+            position: absolute;
+            left: 0;
+            top: 13px;
+        }
+        .una-body{
+            width: 127.7px;
+            height: 108.3px;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+    }
+}
+.show-bamboo-scene{
+    opacity: 1;
+    .bamboo-content{
+        .zhuzhi-leaf{
+            opacity: 1;
+            @include transition(all .5s .3s);
+        }
+        .bamboo{
+            path,line{
+                stroke-dashoffset: 0;
+                @include transition(all 2s);
+            }
+        }
+        .bamboo-phone{
+            opacity:1;
+            @include transition(all .5s .3s);
+        }
+        .una{
+            opacity: 1;
+            @include transition(all 0s .4s);   
+            path, line{
+                stroke-dashoffset: 0;
+                @include transition(all 1s .4s);
+            }
+        }
+    }
+}
+.main-one{
+    width: 130px;
+    text-align: left;
+    margin: auto;
+    position: absolute;
+    top: -12%;
+    left: 50%;
+    margin-left: -65px;
+    z-index: 5;
+    opacity: 0;
+    .triangle{
+        width: 87px;
+        height: 78px;
+    }
+    .one-svg{
+        width: 130px;
+        height: 260px;
+
+    }
+}
+.show-main-one{
+    opacity: 1;
+    @include transition(all .5s);
+}
+.shake-main-one{
+    img, .one-svg{
+        @include animation(shake-main-one .5s 2.2s 2);
+    }
+}
+.ending-main-one{
+    div{
+        margin-top: 18px;
+        @include transform(scale(.58));
+        @include transition(all .5s 6.5s);
+    }
+}
+/*JBL*/
+.jbl-content{
+    width: 413px;
+    height: 409px;
+    position: absolute;
+    left: 50%;
+    margin-left: -207px;
+    top: -9%;
+    .disc-content{
+        width: 372px;
+        height: 334px;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        margin-left: -186px;
+        .twinkle-star{
+            position: absolute;
+            left: -23px;
+            top: -42px;
+            opacity: 0;
+        }
+        .disc{
+            position: absolute;
+            left: 0;
+            top: 12px;
+            width: 325.7px;
+            height: 324.8px;
+            @include transform(rotate(5deg));
+            path,line{
+                stroke-dasharray: 1000;
+                stroke-dashoffset: 1000;
+                @include transition(all .5s);
+            }
+        }
+        .disc-base{
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 347.1px;
+            height: 328.3px;
+            path,line{
+                stroke-dasharray: 500;
+                stroke-dashoffset: 500;
+                @include transition(all .5s);
+            }
+        }
+        .disc-handle{
+            position: absolute;
+            width: 78px;
+            height: 420px;
+            right: 55px;
+            top: 145px;
+            text-align: right;
+            @include transform(rotateZ(35deg));
+            img{
+                opacity: 0
+            }
+            svg{
+                opacity: 0;
+                width: 78.4px;
+                height: 249.3px;
+                @include transition(all .5s);
+            }
+        }
+    }
+}
+.show-jbl-scene{
+    opacity: 1;
+    .disc-content{
+        .disc, .disc-base{
+            path,line{
+                stroke-dashoffset: 0;
+                @include transition(all 1.5s);
+            }
+        }
+        .disc{
+            @include animation(rotateDisc 8s 1.5s infinite linear);
+        }
+        .disc-handle{
+            @include transform(rotateZ(0deg));
+            @include transition(all .5s .8s);
+            svg, img{
+                opacity: 1;
+                @include transition(all .5s .3s);
+            }
+        }
+        .twinkle-star{
+            opacity: 1;
+            @include transition(all 1s 1.5s);
+            img{
+                @include transform(scale(1.15));
+                @include transition(all 30s 2.5s);
+            }
+        }
+    }
+}
+/*发射*/
+.launch-scene{
+    opacity: 0;
+    .launch-content{
+        width: 475px;
+        height: 457px;
+        position: absolute;
+        left: 50%;
+        margin-left: -237px;
+        top: -22%;
+        z-index: 6;
+        path,line{
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+        }
+        circle,polyline, rect{
+            opacity: 0;
+        }
+    }
+    .bottom-cloud{
+        width: 544px;
+        height: 97px;
+        position: absolute;
+        left: -34.5px;
+        bottom: 0;
+        z-index: 7;
+        div{
+            position: absolute;
+            overflow: hidden;
+        }
+        .bottom-cloud-lf{
+            width: 218px;
+            height: 90.9px;
+            right: 294px;
+            top: 7px;
+            z-index: 1;
+            svg{
+                position: absolute;
+                width: 252.5px;
+                height: 90.9px;
+                left: 0;
+                top: 0;
+            }
+        }   
+        .bottom-cloud-md{
+            top: 0px;
+            left: 50%;
+            margin-left: -23px;
+            z-index: 2;
+            svg{
+                width: 46px;
+                height: 46.2px;
+            }
+        }
+        .bottom-cloud-rt{
+            width: 217px;
+            left: 294px;
+            top: 4px;
+            height: 96px;
+            svg{
+                position: absolute;
+                width: 252px;
+                height: 95.8px;
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+        }
+    }
+    .tower-lf-content{
+        position: absolute;
+        left: 43px;
+        bottom: 60px;
+        height: 310px;
+    }
+    .radar{
+        width: 76.7px;
+        height: 76.7px;
+        position: absolute;
+        top: 0;
+        left: 15px;
+        @include transform(rotateZ(5deg));
+        transform-origin: 20% 80%;
+        svg{
+            width: 76.7px;
+            height: 76.7px;
+        }
+    }
+    .tower-lf{
+        width: 89.7px;
+        height: 262.3px;
+        position: absolute;
+        bottom: 0;
+    }
+    .ladder-lf{
+        width: 89.1px;
+        height: 14.5px;
+        position: absolute;
+        left: 88px;
+        top: 124px;
+        overflow: hidden;
+        @include transition(all .5s);
+        svg{
+            width: 89.1px;
+            height: 14.5px;
+        }
+    }
+    .tower-rt-content{
+        position: absolute;
+        right: 43px;
+        bottom: 4px;
+        width: 86px;
+        height: 266px;
+    }
+    .ladder-rt{
+        width: 88.7px;
+        height: 14.5px;
+        position: absolute;
+        top: 108px;
+        right: 85px;
+        overflow: hidden;
+        @include transition(all .5s);
+        svg{
+            width: 88.7px;
+            height: 14.5px;
+        }
+    }
+    .tower-rt{
+        width: 89.7px;
+        height: 269px;
+    }
+    .launch-little{
+        position: absolute;
+        opacity: 0;
+        @include transform(translate3d(40px,-40px,0));
+        @include transition(all .3s);
+    }
+    .launch-little-1{
+        left: 34px;
+        top: 54px;
+    }
+    .launch-little-2{
+        right: 115px;
+        top: 110px;
+    }
+    .launch-little-3{
+        top: 0;
+        right: 115px
+    }
+}
+.show-launch-scene{
+    opacity: 1;
+    .bottom-cloud{
+        path,line{
+            stroke-dashoffset: 0;
+            @include transition(all 2s);
+        }
+        circle,polyline, rect{
+            opacity: 1;
+            @include transition(all .3s);
+        }
+        .bottom-cloud-lf{
+            width: 252.5px;
+            @include transition(all .8s 2s);
+        }
+        .bottom-cloud-rt{
+            width: 252px;
+            @include transition(all .8s 2s);
+        }
+    }
+    .tower-lf-content, .tower-rt-content{
+        path,line{
+            stroke-dashoffset: 0;
+            @include transition(all 3s .3s);
+        }
+        circle,polyline, rect{
+            opacity: 1;
+            @include transition(all .3s .3s);
+        }   
+    }
+    .launch-little{
+        opacity: 1;
+        @include transform(translate3d(0,0,0));
+    }
+    .launch-little-1{
+        @include transition(all .8s .7s ease-in-out);
+    }
+    .launch-little-2{
+        @include transition(all .8s .6s ease-in-out);
+    }
+    .launch-little-3{
+        @include transition(all .8s .5s ease-in-out);
+    }
+    .radar{
+        @include transform(rotateZ(0deg));
+        @include transition(all .8s 1.5s linear);   
+    }
+    .ladder-lf, .ladder-rt{
+        width: 0;
+        @include transition(all .5s 1.8s linear);
+    }
+    //下降
+    .launch-content{
+        @include transform(translateY(220%));
+        @include transition(all .5s 3s ease-in-out);
+    }
+}
+
+/*最后一屏*/
+.ending-scene{
+    z-index: 7
+}
+.ending-content{
+    width: 475px;
+    height: 434px;
+    position: absolute;
+    left: 50%;
+    margin-left: -237px;
+    top: -16%;
+    path,line{
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 1000;
+        @include transition(all .5s);
+    }
+    .elec-line{
+        width: 471px;
+        height: 361.1px;
+        position: absolute;
+        top: 17px;
+        left: 5px;
+    }
+    .astronaut{
+        width: 228.3px;
+        height: 266.3px;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        z-index: 7;
+        opacity: 0;
+    }
+    .radar-component{
+        width: 180px;
+        height: 181px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        .radar-send{
+            width: 107.1px;
+            height: 133.9px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            opacity: 0;
+        }
+        .radar-wave{
+            width: 145.3px;
+            height: 158.5px;
+            position: absolute;
+            top: 24px;
+            left: 0;
+            @include transform(scale(0));
+            path,line{
+                stroke-dashoffset: 0;
+            }
+        }
+    }
+    .ending-little{
+        position: absolute;
+        bottom: 30px;
+        left: 7px;
+        opacity: 0;
+    }
+    .ending-downsize{
+        width: 100%;
+        height: 100%;
+        @include transform(scale(1));
+        @include transition(all .5s);
+    }
+    .women1year{
+        width: 883.9px;
+        height: 147.6px;
+        position: absolute;
+        bottom: -5px;
+        left: -210px;
+        opacity: 0;
+    }
+}
+.show-ending-scene{
+    opacity: 1;
+    .ending-content{
+        path,line{
+            stroke-dashoffset: 0;
+        }
+        .elec-line{
+            path,line{
+                @include transition(all 1s 4s linear);
+            }
+        }   
+        .astronaut{
+            opacity: 1;
+            @include transition(all 0s 4.5s linear);
+            path,line{
+                @include transition(all 3s 4.5s linear);
+            }
+        }
+        .radar-component{
+            .radar-send{
+                opacity: 1;
+                @include transition(all 0s 4.5s linear);
+                path,line{
+                    @include transition(all 2s 4.5s linear);
+                }
+
+            }
+            .radar-wave{
+                @include transform(scale(1));
+                @include transition(all .2s 4.5s ease-in-out);
+            }
+        }
+        .ending-little{
+            bottom: 46px;
+            opacity: 1;
+            @include transition(all 2s 6s linear);
+        }
+        .ending-downsize{
+            @include transform(scale(.55));
+            @include transition(all .5s 6.5s);
+        }
+        .women1year{
+            opacity: 1;
+            @include transition(all .5s 6.5s linear);
+        }
+    }
+    .ending-text{
+        opacity: 1;
+        bottom: 7%;
+        @include transition(all .5s 5s linear);
+        .happy{
+            font-size: 2rem;
+            @include transition(all .5s 6.5s linear);
+        }
+    }
+}
+/*往下降的白云*/
+.down-cloud{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: -100%;
+    img{
+        position: absolute;
+    }
+    .cloud-0{
+        width: 14.7%;
+        left: 18.125%;
+        top: 10%;
+    }
+    .cloud-1{
+        width: 16.4%;
+        left: 32%;
+        bottom: 5%
+    }
+    .cloud-2{
+        width: 32.7%;
+        left: 9%;
+        top: 50%
+    }
+    .cloud-3{
+        width: 43.1%;
+        right: 9%;
+        top: 30%;
+        z-index: 6;
+    }
+    .cloud-4{
+        width: 44.7%;
+        right: 9%;
+        top: 70%;
+        z-index: 6;
+    }
+}
+.show-down-cloud{
+    top: 100%;
+    @include transition(all 2s 2.8s ease-in-out);
+}
+/*加油招募*/
+.recruit-scene{
+    background: #D81939 url('img/jiayou-bg.png') left top no-repeat;
+    color: #fff;
+    display: none; //下掉加油招募12.11
+    .recruit-content{
+        width: 100%;
+        max-width: 500px;
+        margin: auto;
+    }
+    .mg{
+        margin: 8% auto 5%;
+    }
+    .title{
+        /* width: 54.5%; */
+        text-align: center;
+        font-size: 2.5rem;
+        color: #fff;
+        img{
+            width: 100%;
+        }
+        opacity: 0;
+        @include transform(scale(0));
+    }
+    .discribe{
+        width: 82%;
+        margin: auto;
+        border: 1px solid #fff;
+        padding: 8% 3% 8% 5%;
+        position: relative;
+        font-size: .825rem; //16px
+        opacity: 0;
+        @include transform(translateY(5px));
+        line-height: 1.6;
+        .time{
+            margin-top: 10px;
+            font-weight: bold;
+           
+        }
+        .page-corner{
+            width: 10%;
+            position: absolute;
+            right: -1px;
+            bottom: -1px;
+            img{
+                width: 100%;
+                max-width: 62px;
+            }
+        }
+    }
+    .join-info{
+        width: 60%;
+        img{
+            width: 100%;
+        }
+        opacity: 0;
+        @include transform(translateY(5px));
+    }
+    .join-btn{
+        text-align: center;
+        width: 60.75%;
+        max-width: 408px;
+        margin: auto;
+        opacity: 0;
+        @include transform(translateY(5px));
+        img{
+            width: 100%;
+        }
+    }
+}
+.show-recruit-scene{
+    opacity: 1;
+    z-index: 11;
+    @include transition(all .2s ease-in-out);
+    .title{
+        @include animation(bounceIn .3s forwards);
+    }
+    .discribe, .join-info, .join-btn{
+        opacity: 1;
+        @include transform(translateY(0px));
+    }
+    .discribe {
+        @include transition(all .5s .2s ease-in-out);
+    }
+    .join-info{
+        @include transition(all .3s .3s ease-in-out);
+    }
+    .join-btn{
+        @include transition(all .3s .5s ease-in-out);
+    }
+}
+
+/*屏幕提示*/
+.screen-tip{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left:0;
+    text-align: center;
+    background: #db152d;
+    color: #fff;
+    font: .875rem Helvetica,STHeiti STXihei, Microsoft JhengHei, Microsoft YaHei, Arial;
+    font-size: .8rem;
+    z-index: 1988;
+    display: none;
+    div{
+        position: absolute;
+        top: 50%;
+        margin-top: -70px;
+        left: 50%;
+        margin-left: -102px;
+    }
+    p{
+        padding-top: 5px
+    }
+}
+
+/*自适应*/
+
+/* @media screen and (min-height: 417px) and (max-height: 425px) {
+    .five-founder, .build-oneplus, .phone-exhibit, .sale-online, .bbs-content, .weibo-content, .bamboo-content, .jbl-content, .main-one, .launch-content, .ending-content{
+        @include transform(scale(.65));
+    }
+}
+@media screen and (min-width: 401px) and (max-width: 450px) {
+    .five-founder, .build-oneplus, .phone-exhibit, .sale-online, .bbs-content, .weibo-content, .bamboo-content, .jbl-content, .main-one, .launch-content, .ending-content{
+        top: 7px;
+        @include transform(scale(.8));
+    }
+} */
+
+@media screen and (min-height: 441px) and (max-height: 499px) {
+    body,html{
+        font-size: 17px;
+    }
+    .five-founder, .build-oneplus, .phone-exhibit, .sale-online, .bbs-content, .weibo-content, .bamboo-content, .jbl-content, .main-one, .launch-content, .ending-content{
+        @include transform(scale(.62));
+    }  
+    .founder-scene, .build-scene, .phone-scene, .sale-online-scene, .bbsuser-scene, .weibo-scene, .bamboo-scene, .jbl-scene, .launch-scene, .ending-scene, .main-one-scene{
+        height: 430px;
+        top: 50%;
+        margin-top: -215px;
+    }
+}
+@media screen and (min-height: 500px) and (max-height: 599px) {
+    body,html{
+        font-size: 18px;
+    }
+    .five-founder, .build-oneplus, .phone-exhibit, .sale-online, .bbs-content, .weibo-content, .bamboo-content, .jbl-content, .main-one, .launch-content, .ending-content{
+        @include transform(scale(.64));
+    }
+    .founder-scene, .build-scene, .phone-scene, .sale-online-scene, .bbsuser-scene, .weibo-scene, .bamboo-scene, .jbl-scene, .launch-scene, .ending-scene, .main-one-scene{
+        height: 450px;
+        top: 50%;
+        margin-top: -225px;
+    }
+}
+@media screen and (min-height: 600px) and (max-height: 699px) {
+    body,html{
+        font-size: 19px;
+    }
+    .five-founder, .build-oneplus, .phone-exhibit, .sale-online, .bbs-content, .weibo-content, .bamboo-content, .jbl-content, .main-one, .launch-content, .ending-content{
+        @include transform(scale(.66));
+    }
+    .founder-scene, .build-scene, .phone-scene, .sale-online-scene, .bbsuser-scene, .weibo-scene, .bamboo-scene, .jbl-scene, .launch-scene, .ending-scene, .main-one-scene{
+        height: 470px;
+        top: 50%;
+        margin-top: -235px;
+    }
+}
+@media screen and (min-height: 550px){
+    .first-content{
+        margin-top: 15%;
+    }    
+}
+@media screen and (min-height: 650px){
+    .text-title{
+        font-size: 1.8rem;
+    }
+    .recruit-scene{
+        .mg{
+            margin: 9% auto 7%;
+        }
+        .discribe{
+            line-height: 2;
+        }    
+    }
+}
+@media screen and (min-height: 700px){
+    body,html{
+        font-size: 19px;
+    }
+    .five-founder, .build-oneplus, .phone-exhibit, .sale-online, .bbs-content, .weibo-content, .bamboo-content, .jbl-content, .main-one, .launch-content, .ending-content{
+        @include transform(scale(.8));
+    }
+    .founder-scene, .build-scene, .phone-scene, .sale-online-scene, .bbsuser-scene, .weibo-scene, .bamboo-scene, .jbl-scene, .launch-scene, .ending-scene, .main-one-scene{
+        height: 550px;
+        top: 50%;
+        margin-top: -275px;
+    }
+    .text-title{
+        font-size: 2.3rem;
+    }
+    .recruit-scene{
+        .mg{
+            margin: 20% auto 10%;
+        }       
+    }
+}
+
+/*宽度小于350 或者 高度小于430的缩放值*/
+@media screen and (max-height: 440px) {
+    body,html{
+        font-size: 16px;
+    }
+    .five-founder, .build-oneplus, .phone-exhibit, .sale-online, .bbs-content, .weibo-content, .bamboo-content, .jbl-content, .main-one, .launch-content, .ending-content{
+        @include transform(scale(.6));
+    }
+    .text-title{
+        font-size: 1.5rem;
+    }
+    .music-btn{
+        @include transform(translate(.8));
+        top: 5px;
+        right: 5px
+    }
+}
+@media screen and (max-height: 460px) {
+    .first-content{
+        .first-info{
+            margin-top: -5%;
+        }
+    }
+}
+@media screen and (max-width: 350px){
+    .text-title{
+        font-size: 1.5rem;
+    }
+    .five-founder, .build-oneplus, .phone-exhibit, .sale-online, .bbs-content, .weibo-content, .bamboo-content, .jbl-content, .main-one, .launch-content, .ending-content{
+        @include transform(scale(.6));
+    }
+} 
+@media screen and (min-width: 500px){
+    .founder-scene, .build-scene, .phone-scene, .sale-online-scene, .bbsuser-scene, .weibo-scene, .bamboo-scene, .jbl-scene, .launch-scene, .ending-scene, .main-one-scene{
+        width: 500px;
+        left: 50%;
+        margin-left: -250px;
+    }
+
+}
+/*keyframes*/
+@import "animation.scss";
